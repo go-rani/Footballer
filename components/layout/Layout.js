@@ -6,9 +6,9 @@ class Layout extends Component {
     
     render() {
         return (
-            <div>
+            <div style={{backgroundColor:"#fff"}}>
                 <Header/>
-                {this.props.children}
+                <div style={{padding:"0 20px"}}>{this.props.children}</div>
                 <Footer/>
             </div>
         )

@@ -25,7 +25,7 @@ class CustomDocument extends Document {
                     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
                     {/* <link rel="icon" type="image/x-icon" href="/static/taeyangemc.ico" /> */}
                 </Head>
-                <body>
+                <body style={{backgroundColor:"#f9f9f9", maxWidth:"768px", margin: "0 auto", padding: "0", backgroundSize: "768px"}}>
                     <Main/>
                     <NextScript/>
                 </body>

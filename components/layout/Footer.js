@@ -6,8 +6,10 @@ class Footer extends Component {
 
     render() {
         return (
-            <footer style={{background:"#222222", color:"#fff", fontWeight:"lighter", fontSize:"14px", paddingTop: "20px", paddingBottom: "20px"}}>
-                <Container>
+            <footer style={{fontWeight:"lighter", fontSize:"14px", padding:"0 20px"}}>
+                Footer
+                {/* <footer style={{background:"#222222", color:"#fff", fontWeight:"lighter", fontSize:"14px", padding:"0 20px"}}> */}
+                {/* <Container>
                     <Row className="pt-3">
                         <Col md={8}>
                             <div className="pb-3">
@@ -28,7 +30,7 @@ class Footer extends Component {
                             </p>
                         </Col>
                     </Row>
-                </Container>
+                </Container> */}
             </footer>
         )
     }

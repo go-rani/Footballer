@@ -1,47 +1,53 @@
+import Link from 'next/link';
 import React, { Component } from 'react';
-import db from '../../common/db';
-import { observer } from "mobx-react";
-import { observable } from 'mobx';
+import { Button, Alert } from 'react-bootstrap';
 
-class Data {
-    @observable teams = [];
-}
+import MyHome from '../user/MyHome';
+import TeamList from '../team/TeamList';
+import BannerList from './BannerList';
 
-@observer
-class MainContents extends Component {
-    data = new Data()
-    
+
+class MyTeamList extends Component {
+        
     constructor(props) {
         super(props)
-        db.collection('teams')
-            .get()
-            .then(res => {
-                const newTeams = []
-                res.forEach(doc => {
-                    const docData = doc.data()
-                    docData.id = doc.id
-                    newTeams.push(docData)
-                })
-                this.data.teams = newTeams
-                console.log(newTeams)
-            })
-            .catch(error => {
-                alert(error.message)
-                console.log(error)
-            })
+        this.state = {
+            show: true,
+            login: true,
+        }
     }
 
     render() {
+        
         return (
             <div>
-                데이타
-                {this.props.date}
-                {this.data.teams.map( team => 
-                    <div key={team.id}>{team.club_name}</div>
-                )}
+                <div style={{padding:"20px 0px"}}>
+                    <h5>MY TEAM</h5>
+                    <MyHome isLogin={this.state.login}/>
+                </div>
+                
+                <div style={{padding:"20px 0px"}}>
+                    <h5>TEAM SEARCH</h5>
+                    <TeamList isLogin={this.state.login}/>
+                </div>
+                
+                {/* 로그인 안했으면 이벤트 더필요, 홈개념 */}
+                {
+                    this.state.login === true && (
+                        <div style={{padding:"20px 0px"}}>
+                            <h5>login true</h5>
+                        </div>
+                    )
+                }
+
+                <div style={{padding:"20px 0px"}}>
+                    <h5>Banner List</h5>
+                    <BannerList />
+                </div>
+
             </div>
         )
     }
 
 }
-export default MainContents;
+export default MyTeamList;
