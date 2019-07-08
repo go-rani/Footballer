@@ -19,6 +19,11 @@ module.exports = {
   exportPathMap: async function(defaultPathMap) {
     return {
       '/': { page: '/' },
+      '/myteam': { page: '/myteam' },
+      '/profile': { page: '/profile' },
+      '/team': { page: '/team' },
+      '/teamreg': { page: '/teamreg' },
+      '/search': { page: '/search' },
     }
   }
 }

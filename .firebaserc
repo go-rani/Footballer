@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "footballer-43d76"
+    "default": "footballer-43d76",
+    "staging": "footballer-43d76"
   }
 }

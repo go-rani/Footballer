@@ -60,7 +60,7 @@ class EventList extends Component {
             <div>
                 {/* <h5 className="mb-3">추천 트레이닝</h5> */}
                 <Row>
-                    <Col md={6}>
+                    <Col md={6} style={{marginBottom:"20px"}}>
                         <Card>
                             <Card.Img variant="top" src="https://placehold.it/500x250" />
                             <Card.Body>
@@ -71,7 +71,7 @@ class EventList extends Component {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col md={6}>
+                    <Col md={6} style={{marginBottom:"20px"}}>
                         <Card>
                             <Card.Img variant="top" src="https://placehold.it/500x250" />
                             <Card.Body>
@@ -84,7 +84,7 @@ class EventList extends Component {
                     </Col>
                 </Row>
 
-                <Card className="text-center mt-5 mb-5">
+                <Card className="text-center mt-2 mb-2">
                     <Card.Header>SUBSCRIBE TO OUR NEWSLETTER</Card.Header>
                     <Card.Body>
                         <Card.Text>
