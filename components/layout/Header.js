@@ -2,6 +2,8 @@ import Link from 'next/link'
 import React, { Component } from 'react';
 import { Navbar } from 'react-bootstrap';
 
+import Login from '../user/Login';
+
 class Header extends Component {
     render() {
         return (
@@ -14,7 +16,8 @@ class Header extends Component {
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Link href="/search"><a className="ml-3 text-decoration-none text-reset">팀찾기</a></Link>
-                        <Link href="/"><a className="ml-3 text-decoration-none text-reset"></a></Link>
+                        <Login />
+                        {/* <Link href="/"><a className="ml-3 text-decoration-none text-reset"></a></Link> */}
                     </Navbar.Collapse>
                 </Navbar>
             </div>

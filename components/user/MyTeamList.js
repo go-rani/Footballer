@@ -12,6 +12,7 @@ class MyTeamList extends Component {
     render() {
         return (
             <div>
+                <h5>MY TEAM</h5>
                 <Card style={{ width: "150px" }}>
                     <Card.Img variant="top" src="https://placehold.it/100x100" />
                     {/* <Image style={{position:"absolute", width:"100px", right:"5%", top:"4%"}} src="https://placehold.it/130x130" roundedCircle /> */}
@@ -25,7 +26,6 @@ class MyTeamList extends Component {
                         </Link>
                     </Card.Body>
                 </Card>
-
             </div>
         )
     }

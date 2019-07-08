@@ -24,9 +24,9 @@ class MyHome extends Component {
                     this.state.show == true
                     ? (
                         <Alert show={this.state.show} variant="primary" onClose={handleDismiss} dismissible>
-                            <Alert.Heading>등록된 팀이 없습니다.</Alert.Heading>
+                            <Alert.Heading>MY TEAM</Alert.Heading>
                             <p>
-                                팀을 등록하거나 가입하여 마이팀을 만들어보세요.
+                                등록된 팀이 없습니다. 팀을 등록하거나 가입하여 마이팀을 만들어보세요.
                             </p>
                             <Link href="/teamreg">
                                 <Button variant="light" style={{width: "100%"}}>

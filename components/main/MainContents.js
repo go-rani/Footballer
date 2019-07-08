@@ -5,6 +5,7 @@ import { Button, Alert } from 'react-bootstrap';
 import MyHome from '../user/MyHome';
 import TeamList from '../team/TeamList';
 import BannerList from './BannerList';
+import EventList from './EventList';
 
 
 class MyTeamList extends Component {
@@ -21,8 +22,13 @@ class MyTeamList extends Component {
         
         return (
             <div>
+                <div style={{padding:"10px 0px 20px 0px"}}>
+                    {/* <h5>Banner List</h5> */}
+                    <BannerList />
+                </div>
+
                 <div style={{padding:"20px 0px"}}>
-                    <h5>MY TEAM</h5>
+                    {/* <h5>MY TEAM</h5> */}
                     <MyHome isLogin={this.state.login}/>
                 </div>
                 
@@ -33,7 +39,7 @@ class MyTeamList extends Component {
                 
                 {/* 로그인 안했으면 이벤트 더필요, 홈개념 */}
                 {
-                    this.state.login === true && (
+                    this.state.login === false && (
                         <div style={{padding:"20px 0px"}}>
                             <h5>login true</h5>
                         </div>
@@ -41,8 +47,8 @@ class MyTeamList extends Component {
                 }
 
                 <div style={{padding:"20px 0px"}}>
-                    <h5>Banner List</h5>
-                    <BannerList />
+                    <h5>추천 트레이닝</h5>
+                    <EventList />
                 </div>
 
             </div>
