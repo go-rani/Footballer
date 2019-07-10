@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { Component } from 'react';
 import {Container, Row, Col } from 'react-bootstrap';
 
@@ -6,8 +7,18 @@ class Footer extends Component {
 
     render() {
         return (
-            <footer style={{fontWeight:"lighter", fontSize:"14px", padding:"0 20px"}}>
-                Footer
+            <footer style={{fontWeight:"lighter", fontSize:"14px", padding:"30px 20px", backgroundColor: "rgb(250, 250, 250)"}}>
+                <div>
+                    <div style={{paddingBottom:"5px"}}>
+                        <div style={{ float:"left", paddingRight:"10px"}}>
+                            <Link href="/agreement"><span>이용약관</span></Link>
+                        </div>
+                        <div>
+                            <Link href="/privacy"><span>개인정보처리방침</span></Link>
+                        </div>
+                    </div>
+                    <div><small>© 2019 FOOTBALLER, All rights reserved.</small></div>
+                </div>
                 {/* <footer style={{background:"#222222", color:"#fff", fontWeight:"lighter", fontSize:"14px", padding:"0 20px"}}> */}
                 {/* <Container>
                     <Row className="pt-3">
