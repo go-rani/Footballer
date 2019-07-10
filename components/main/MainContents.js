@@ -46,7 +46,7 @@ class MyTeamList extends Component {
                     )
                 }
 
-                <div style={{padding:"20px 0px"}}>
+                <div style={{padding:"20px 0px", clear:"both"}}>
                     <h5>추천 트레이닝</h5>
                     <EventList />
                 </div>

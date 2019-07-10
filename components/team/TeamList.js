@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import db from '../../common/db';
 import { observable } from 'mobx';
 import { observer } from "mobx-react";
-import { Button } from 'react-bootstrap';
+import { Card, Image, Row, Col } from 'react-bootstrap';
 
 class Data {
     @observable teams = [];
@@ -38,9 +38,19 @@ class TeamList extends Component {
         return (
             <div>
                 {this.data.teams.map( team => 
-                    <Link href="/team">
-                        <Button key={team.id} variant="outline-secondary">{team.club_name}</Button>
-                    </Link>
+                    <div style={{width:"50%", float:"left", paddingRight:"10px", paddingBottom:"10px"}}>
+                        <Link href="/team">
+                            <Card style={{ width:"100%" }} key={team.key}>
+                                <Card.Img variant="top" src="https://placehold.it/100x100" />
+                                <Image style={{position:"absolute", width:"40px", height:"20px", right:"5%", top:"4%", backgroundColor:"#333"}} />
+                                <Card.Body>
+                                    <Card.Title>{team.club_name}</Card.Title>
+                                    <p><small>서울>잠실</small></p>
+                                    <p><small>여성</small></p>
+                                </Card.Body>
+                            </Card>
+                        </Link>
+                    </div>
                 )}
                 <style jsx>
                     {`
