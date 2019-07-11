@@ -21,9 +21,12 @@ module.exports = {
       '/': { page: '/' },
       '/myteam': { page: '/myteam' },
       '/profile': { page: '/profile' },
-      '/team': { page: '/team' },
+      '/team/[id]': { page: '/team/[id]' },
       '/teamreg': { page: '/teamreg' },
       '/search': { page: '/search' },
+      '/privacy': { page: '/privacy' },
+      '/agreement': { page: '/agreement' },
+      '/company': { page: '/company' },
     }
   }
 }
