@@ -105,7 +105,7 @@ class EventList extends Component {
                             </InputGroup>
                             <Modal show={this.state.show} onHide={this._handleClose}>
                                 <Modal.Header closeButton>
-                                    <Modal.Title>아래 이메일로 구독하시겠습니까?</Modal.Title>
+                                    <Modal.Title>구독하시겠습니까?</Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>이메일 : {this.state.emailValue} </Modal.Body>
                                 <Modal.Footer>

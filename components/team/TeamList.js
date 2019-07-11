@@ -38,9 +38,9 @@ class TeamList extends Component {
         return (
             <div>
                 {this.data.teams.map( team => 
-                    <div style={{width:"50%", float:"left", paddingRight:"10px", paddingBottom:"10px"}}>
-                        <Link href="/team">
-                            <Card style={{ width:"100%" }} key={team.key}>
+                    <div style={{width:"50%", float:"left", paddingRight:"10px", paddingBottom:"10px"}} key={team.id}>
+                        <Link href="/team/[id]" as={`/team/${team.id}`}>
+                            <Card style={{ width:"100%" }}>
                                 <Card.Img variant="top" src="https://placehold.it/100x100" />
                                 <Image style={{position:"absolute", width:"40px", height:"20px", right:"5%", top:"4%", backgroundColor:"#333"}} />
                                 <Card.Body>

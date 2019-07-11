@@ -12,7 +12,7 @@ class TeamRegister extends Component {
         return (
             <div style={{padding:"20px 0px"}}>
                 <Card border="info">
-                    <Card.Header className="bg-info" style={{color:'white'}}>팀 등록</Card.Header>
+                    <Card.Header className="bg-info" style={{color:'white'}}>팀 등록: 간편하게 등록하기</Card.Header>
                     <Card.Body>
                         <Form>
                             <Form.Group as={Row} controlId="formHorizontalEmail">
