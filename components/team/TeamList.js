@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import React, { Component } from 'react';
+import Link from 'next/link';
 import db from '../../common/db';
 import { observable } from 'mobx';
 import { observer } from "mobx-react";
@@ -25,7 +25,7 @@ class TeamList extends Component {
                     newTeams.push(docData)
                 })
                 this.data.teams = newTeams
-                console.log(newTeams)
+                // console.log(newTeams)
             })
             .catch(error => {
                 alert(error.message)

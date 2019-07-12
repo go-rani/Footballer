@@ -1,56 +1,50 @@
-import Link from 'next/link';
 import React, { Component } from 'react';
+import Router from 'next/router';
+import Link from 'next/link';
+import db from '../../common/db';
+import user from '../../common/store/user';
+
 import { Card, Button, Alert, Form } from 'react-bootstrap';
+import MySchedule from './MySchedule';
+import MyNotice from './MyNotice';
 
 
 class MyTeam extends Component {
-        
+
     constructor(props) {
         super(props)
-        this.state = {
-            show: true,
+        
+        if (user.info.uid) {
+            db.collection('my_team')
+                .where('user_id','==',user.info.uid)
+                .get()
+                .then(res => {
+                    if (res.empty == true) {
+                        Router.back()
+                        //팀 들어왔을때 자기 팀인지 확인 아니면 팅겨야함
+                    }
+                })
+                .catch(error => {
+                    alert(error.message)
+                    console.log(error)
+                })
         }
     }
 
     render() {
-        const handleDismiss = () => this.setState({ show: false });
+        // console.log(this.props.teamID)
+        
         return (
             <div>
-                <Alert show={this.state.show} variant="primary" onClose={handleDismiss} dismissible>
-                    <Alert.Heading>7월 회비 납부</Alert.Heading>
-                    <strong>신한</strong> 110-256-444444
-                    <Button variant="light" size="sm">
-                        복사
-                    </Button>
-                </Alert>
+                {/* fde7c699-e16b-451f-ba1d-6f2d5df8310b */}
+                <div>
+                    {/* <h5>공지사항</h5> */}
+                    <MyNotice noticeID="test"/>
+                </div>
 
                 <div style={{padding:"20px 0px"}}>
-                    <h5>경기일정</h5>
-                    <Card>
-                        <Card.Header>7/31 (수) PM 8:00 ~ 10:00</Card.Header>
-                        <Card.Body>
-                            <blockquote className="blockquote mb-0">
-                                <div>
-                                    <strong>경기장: </strong> 잠실 올팍축구장
-                                    <Button variant="secondary" size="sm">주소 복사</Button>
-                                </div>
-                                <div>
-                                    <p>description</p>
-                                </div>
-                                <footer className="blockquote-footer">                                
-                                    투표
-                                    <Form>
-                                        <div style={{width:"50%", float:"left"}}>
-                                            <Form.Check inline label="참석" type="radio" name="formRadios" id="formRadios1"/> 10명
-                                        </div>
-                                        <div style={{width:"50%", float:"left"}}>
-                                            <Form.Check inline label="불참" type="radio" name="formRadios" id="formRadios2"/> 1명
-                                        </div>
-                                    </Form>
-                                </footer>
-                            </blockquote>
-                        </Card.Body>
-                    </Card>
+                    {/* <h5>경기일정</h5> */}
+                    <MySchedule scheduleID="test"/>
                 </div>
                 
                 <div style={{padding:"20px 0px"}}>

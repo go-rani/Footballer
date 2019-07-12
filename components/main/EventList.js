@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import db from '../../common/db'
+import Link from 'next/link';
+import db from '../../common/db';
 import uuid from 'uuid/v4';
 import { Button, Card, Row, Col, InputGroup, FormControl, Modal } from 'react-bootstrap';
 
@@ -61,35 +62,40 @@ class EventList extends Component {
                 {/* <h5 className="mb-3">추천 트레이닝</h5> */}
                 <Row>
                     <Col md={6} style={{marginBottom:"20px"}}>
-                        <Card>
-                            <Card.Img variant="top" src="https://placehold.it/500x250" />
-                            <Card.Body>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk
-                                of the card's content.
-                            </Card.Text>
-                            </Card.Body>
-                        </Card>
+                        <Link href="/company">
+                            <Card>
+                                <Card.Img variant="top" src="../../static/footballer_company.png" />
+                                <Card.Body>
+                                    <div>
+                                        <p style={{marginBottom:"5px", fontWeight:"bold"}}>FOOTBALLER 풋볼러</p>
+                                        <p style={{fontSize:"10pt", marginBottom:"0px"}}>“Connect Everything” 새로운 연결, 더 나은 세상 </p>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </Link>
                     </Col>
                     <Col md={6} style={{marginBottom:"20px"}}>
-                        <Card>
-                            <Card.Img variant="top" src="https://placehold.it/500x250" />
-                            <Card.Body>
-                            <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk
-                                of the card's content.
-                            </Card.Text>
-                            </Card.Body>
-                        </Card>
+                        <a href="https://jnsportsclub.kr/190" target="_blank">
+                            <Card>
+                                <Card.Img variant="top" src="../../static/banner_02.png" />
+                                <Card.Body>
+                                    <div style={{textDecoration:"none", color:"#333"}}>
+                                        <p style={{marginBottom:"5px", fontWeight:"bold"}}>JN 치키토 SC 레이디스</p>
+                                        <p style={{fontSize:"10pt", marginBottom:"0px"}}>SC 레이디스 여자 풋살팀 신입 회원 모집</p>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </a>
                     </Col>
                 </Row>
 
                 <Card className="text-center mt-2 mb-2">
-                    <Card.Header>SUBSCRIBE TO OUR NEWSLETTER</Card.Header>
+                    {/* <Card.Header>SUBSCRIBE TO OUR NEWSLETTER</Card.Header> */}
+                    <Card.Header>풋볼러 소식 구독하기</Card.Header>
                     <Card.Body>
-                        <Card.Text>
-                        풋볼러에서 제공하는 다양한 이벤트와 매칭 소식을 이메일로 받아보세요.
-                        </Card.Text>
+                        <div>
+                            <p style={{fontSize:"11pt"}}>풋볼러에서 제공하는 다양한 이벤트와 매칭 소식을 이메일로 받아보세요.</p>
+                        </div>
                         <div style={{margin: 'auto'}}>
                             <InputGroup className="mb-3">
                                 {/* <FormControl
