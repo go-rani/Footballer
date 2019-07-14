@@ -61,7 +61,7 @@ class EventList extends Component {
             <div>
                 {/* <h5 className="mb-3">추천 트레이닝</h5> */}
                 <Row>
-                    <Col md={6} style={{marginBottom:"20px"}}>
+                    <Col md={12} style={{marginBottom:"20px"}}>
                         <Link href="/company">
                             <Card>
                                 <Card.Img variant="top" src="../../static/footballer_company.png" />
@@ -74,7 +74,7 @@ class EventList extends Component {
                             </Card>
                         </Link>
                     </Col>
-                    <Col md={6} style={{marginBottom:"20px"}}>
+                    {/* <Col md={6} style={{marginBottom:"20px"}}>
                         <a href="https://jnsportsclub.kr/190" target="_blank">
                             <Card>
                                 <Card.Img variant="top" src="../../static/banner_02.png" />
@@ -86,7 +86,7 @@ class EventList extends Component {
                                 </Card.Body>
                             </Card>
                         </a>
-                    </Col>
+                    </Col> */}
                 </Row>
 
                 <Card className="text-center mt-2 mb-2">

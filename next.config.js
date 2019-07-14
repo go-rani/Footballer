@@ -21,7 +21,7 @@ module.exports = {
       '/': { page: '/' },
       '/myteam': { page: '/myteam' },
       '/profile': { page: '/profile' },
-      '/team/[id]': { page: '/team/[id]' },
+      '/team': { page: '/team' },
       '/teamreg': { page: '/teamreg' },
       '/search': { page: '/search' },
       '/privacy': { page: '/privacy' },

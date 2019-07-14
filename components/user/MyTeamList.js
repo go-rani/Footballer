@@ -47,7 +47,8 @@ class MyTeamList extends Component {
                     <Link href="/myteam/[id]" as={`/myteam/${team.team_id}`} key={team.id}>
                         <div style={{paddingBottom:"15px"}}>
                             <div style={{float:"left", marginRight:"15px"}}>
-                                <Image src="https://placehold.it/80x80" roundedCircle />
+                                {/* <Image src="https://placehold.it/80x80" roundedCircle /> */}
+                                <div style={{backgroundImage:`url(${team.emblem_thumb})`, width:"80px", height:"80px", backgroundSize:"cover"}}></div>
                             </div>
                             <div style={{overflow:"hidden", height:"80px", paddingTop:"12px"}}>
                                 <div style={{float:"left"}}>
