@@ -19,10 +19,11 @@ module.exports = {
   exportPathMap: async function(defaultPathMap) {
     return {
       '/': { page: '/' },
-      '/myteam': { page: '/myteam' },
       '/profile': { page: '/profile' },
-      '/team': { page: '/team' },
+      '/myteams': { page: '/myteams' },
+      '/teams': { page: '/teams' },
       '/teamreg': { page: '/teamreg' },
+      '/regconfirm': { page: '/regconfirm' },
       '/search': { page: '/search' },
       '/privacy': { page: '/privacy' },
       '/agreement': { page: '/agreement' },

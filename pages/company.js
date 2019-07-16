@@ -4,8 +4,8 @@ import { Button, ButtonToolbar, OverlayTrigger, Popover } from 'react-bootstrap'
 const company = () => (
     <Layout>
         <div className="pt-2 pb-2">
-            <h4>“Connect Everything” <br />새로운 연결, 더 나은 세상</h4>
-            <img src="/static/footballer_company.png" alt="main" style={{width:"100%"}}/>
+            <img src="/static/footballer_company.png" alt="main" style={{width:"100%", paddingBottom:"15px"}}/>
+            <h4 style={{lineHeight:"inherit"}}>“Connect Everything” <br />새로운 연결, 더 나은 세상</h4>
         </div>
         <div className="pt-3 pb-3">
             <p className="font-weight-bold">팀 관리</p>

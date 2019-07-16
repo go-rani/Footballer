@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Router from 'next/router';
-import Link from 'next/link';
+// import Link from 'next/link';
+import { Link } from '../../routes';
 import db from '../../common/db';
 import user from '../../common/store/user';
 
@@ -51,7 +52,8 @@ class MyTeam extends Component {
                     <h5>팀정보</h5>
                     <div className="bd-callout">
                         <h5>FC치키토</h5>
-                        <Link href="/team/[id]" as={`/team/56b65efc-f0aa-4d47-94f0-3e957d418753`}>
+                        {/* <Link href="/team/[id]" as={`/team/56b65efc-f0aa-4d47-94f0-3e957d418753`}> */}
+                        <Link route={`/teams/56b65efc-f0aa-4d47-94f0-3e957d418753`}>
                             <Button variant="light" style={{width: "100%"}}>
                                 상세페이지
                             </Button>

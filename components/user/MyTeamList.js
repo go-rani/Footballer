@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
+import { Link } from '../../routes';
 import db from '../../common/db';
 import { observable } from 'mobx';
 import { observer } from "mobx-react";
@@ -44,11 +45,12 @@ class MyTeamList extends Component {
             <div>
                 <h5>MY TEAM</h5>
                 {this.data.myteams.map(team => 
-                    <Link href="/myteam/[id]" as={`/myteam/${team.team_id}`} key={team.id}>
+                    // <Link href="/myteam/[id]" as={`/myteam/${team.team_id}`} key={team.id}>
+                    <Link route={`/myteams/${team.team_id}`} key={team.id}>
                         <div style={{paddingBottom:"15px"}}>
                             <div style={{float:"left", marginRight:"15px"}}>
                                 {/* <Image src="https://placehold.it/80x80" roundedCircle /> */}
-                                <div style={{backgroundImage:`url(${team.emblem_thumb})`, width:"80px", height:"80px", backgroundSize:"cover"}}></div>
+                                <div style={{backgroundImage:`url(../static/team_test05.png)`, width:"80px", height:"80px", backgroundSize:"cover", borderRadius:"40px", border:"none"}}></div>
                             </div>
                             <div style={{overflow:"hidden", height:"80px", paddingTop:"12px"}}>
                                 <div style={{float:"left"}}>
