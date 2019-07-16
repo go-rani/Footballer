@@ -16,7 +16,7 @@ const express = require('express');
 const port = 3000;
 const app = next({dev: process.env.NODE_ENV !== 'production'})
 const handle = routes.getRequestHandler(app);
-console.log('tt');
+
 app.prepare().then(() => {
     const server = express();
     server.use(handle);
