@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import db from '../../common/db';
 
-import { Card, Button, Modal, Form, ButtonToolbar, OverlayTrigger, Popover } from 'react-bootstrap';
+import { Card, Button, Modal, Form, ButtonToolbar, OverlayTrigger, Popover, Badge } from 'react-bootstrap';
 
 class ScheduleModal extends Component {
     _login = () => {
@@ -80,6 +80,10 @@ class MySchedule extends Component {
                                 </div>
                                 <div>
                                     <p>description</p>
+                                </div>
+                                <div style={{fontSize:"12pt", marginBottom:"12px"}}>
+                                    <Badge variant="warning" className="mr-1">매칭 구함</Badge>
+                                    <Badge variant="primary">용병 구함</Badge>
                                 </div>
                                 <footer className="blockquote-footer">                                
                                     투표

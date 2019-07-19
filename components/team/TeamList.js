@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import Link from 'next/link';
-import { Link } from '../../routes';
+import Link from 'next/link';
+// import { Link } from '../../routes';
 import db from '../../common/db';
 import { observable } from 'mobx';
 import { observer } from "mobx-react";
@@ -42,7 +42,8 @@ class TeamList extends Component {
                     num = num +1
                     return (
                         <div className="card_div" style={num%2 == 1 ? {paddingRight:"5px"} : {paddingLeft: "5px"}} key={team.id}>
-                            <Link route={`/teams/${team.id}`}>
+                            {/* <Link route={`/teams/${team.id}`}> */}
+                            <Link as={`/teams/${team.id}`} href={`/teams?teamId=${team.id}`}>
                                 <div style={{ width:"100%", position:"relative"}}>
                                     {/* <div style={{backgroundImage:`url(${team.emblem_thumb})`, width:"100%", paddingBottom: "75%", backgroundSize:"cover"}}></div> */}
                                     <div style={{backgroundImage:`url(../static/team_test0${num}.png)`, width:"100%", paddingBottom: "75%", backgroundSize:"cover"}}></div>
@@ -52,7 +53,7 @@ class TeamList extends Component {
                                     </div>
                                     <div style={{paddingTop:"8px"}}>
                                         <p className="title">{team.club_name}</p>
-                                        <p className="content"><small>서울>잠실, 여성</small></p>
+                                        <p className="content"><small>{team.gender}, {team.location} </small></p>
                                     </div>
                                 </div>
                             </Link>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React, { Component } from 'react';
+import Router from 'next/router';
 import firebase from '../../common/firebase';
 import user from '../../common/store/user'
 import { observer } from 'mobx-react';
@@ -77,6 +78,7 @@ class Login extends Component {
             .then( res => {
                 user.info.uid = ""
                 localStorage.removeItem("userInfo");
+                Router.push('/')
             })
             .catch(error => {
                 alert('logout failed' + error.message)
@@ -98,6 +100,7 @@ class Login extends Component {
                 )}
                 {user.info.uid !== "" &&(
                    <DropdownButton variant="outline-secondary" title={user.info.displayName} size="sm" alignRight>
+                        <Link href="/teamreg"><a className="dropdown-item">팀등록</a></Link>
                         <Link href="/profile"><a className="dropdown-item">마이페이지</a></Link>
                         {/* <Link href="/myteam"><a className="dropdown-item">팀관리</a></Link> */}
                         <Dropdown.Divider />

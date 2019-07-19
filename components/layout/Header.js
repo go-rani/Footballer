@@ -15,7 +15,7 @@ class Header extends Component {
                     </Link>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
-                        <Link href="/search"><a className="ml-3 text-decoration-none text-reset">팀찾기</a></Link>
+                        <Link href="/search?keyword=something"><a className="ml-3 text-decoration-none text-reset">팀찾기</a></Link>
                         <Login />
                         {/* <Link href="/"><a className="ml-3 text-decoration-none text-reset"></a></Link> */}
                     </Navbar.Collapse>

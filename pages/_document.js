@@ -8,13 +8,13 @@ class CustomDocument extends Document {
                 <Head>
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                     <meta name="naver-site-verification" content=""/>
-                    <meta name="description" content="설명"></meta>
+                    <meta name="description" content="FOOTBALLER 풋볼러, 축구/풋살 동호회 쉽게 관리하고 매칭하자!!"></meta>
                     <meta property="og:type" content="website" />
-                    <meta property="og:title" content="타이틀" />
-                    <meta property="og:description" content="설명" />
+                    <meta property="og:title" content="FOOTBALLER 풋볼러" />
+                    <meta property="og:description" content="FOOTBALLER 풋볼러, 축구/풋살 동호회 쉽게 관리하고 매칭하자!!" />
                     <meta property="og:image" content="" />
                     <meta property="og:url" content="" />
-                    <title>타이틀</title>
+                    <title>FOOTBALLER 풋볼러</title>
                     <link
                         rel="stylesheet"
                         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"

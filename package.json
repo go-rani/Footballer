@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "node server.js",
+    "build": "next build",
+    "serve": "SET NODE_ENV=production firebase serve",
     "start": "NODE_ENV=production node server.js",
     "export": "next build && next export"
   },
@@ -21,6 +23,7 @@
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
+    "react-ga": "^2.6.0",
     "react-slick": "^0.24.0",
     "uuid": "^3.3.2"
   },
