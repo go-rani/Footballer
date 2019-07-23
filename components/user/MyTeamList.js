@@ -12,7 +12,7 @@ class MyTeamList extends Component {
     render() {
         return (
             <div>
-                <h5>MY TEAM</h5>
+                <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>MY TEAM</h5>
                 {this.props.myteams.map(team => 
                     // <Link href="/myteam/[id]" as={`/myteam/${team.team_id}`} key={team.id}>
                     <Link route={`/myteams/${team.team_id}`} key={team.id}>

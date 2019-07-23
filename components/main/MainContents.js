@@ -32,7 +32,7 @@ class MyTeamList extends Component {
                 </div>
                 
                 <div style={{padding:"20px 0px"}}>
-                    <h5>TEAM SEARCH</h5>
+                    <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>팀 찾기</h5>
                     <TeamList isLogin={this.state.login}/>
                 </div>
                 
@@ -46,7 +46,7 @@ class MyTeamList extends Component {
                 }
 
                 <div style={{padding:"20px 0px", clear:"both"}}>
-                    <h5>추천 트레이닝</h5>
+                    <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>추천 트레이닝</h5>
                     <EventList />
                 </div>
 

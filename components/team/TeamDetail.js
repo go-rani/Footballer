@@ -148,7 +148,7 @@ class TeamDetail extends Component {
                     </Alert>
                 </div>
                 <div style={{marginTop:"20px"}}>
-                    <h6>경기일정</h6>
+                    <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>경기일정</h5>
                     <Card>
                         <Card.Header>7/31 (수) PM 8:00 ~ 10:00</Card.Header>
                         <Card.Body>

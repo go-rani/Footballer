@@ -52,7 +52,7 @@ class MyTeam extends Component {
                     <div className="bd-callout">
                         <h5>FC치키토</h5>
                         {/* <Link href="/team/[id]" as={`/team/56b65efc-f0aa-4d47-94f0-3e957d418753`}> */}
-                        <Link route={`/teams/56b65efc-f0aa-4d47-94f0-3e957d418753`}>
+                        <Link route={`/teams/${this.props.teamID}`}>
                             <Button variant="light" style={{width: "100%"}}>
                                 상세페이지
                             </Button>

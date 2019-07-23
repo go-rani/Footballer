@@ -42,22 +42,7 @@ class MySchedule extends Component {
         this.state = {
             modalShow: false,
         }
-        
-        // if (user.info.uid) {
-        //     db.collection('my_team')
-        //         .where('user_id','==',user.info.uid)
-        //         .get()
-        //         .then(res => {
-        //             if (res.empty == true) {
-        //                 Router.back()
-        //                 //팀 들어왔을때 자기 팀인지 확인 아니면 팅겨야함
-        //             }
-        //         })
-        //         .catch(error => {
-        //             alert(error.message)
-        //             console.log(error)
-        //         })
-        // }
+
     }
 
     render() {
@@ -66,7 +51,7 @@ class MySchedule extends Component {
         return (
             <div>
                 <div>
-                    <h5 style={{float:"left"}}>경기일정</h5>
+                    <h5 style={{float:"left", color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>경기일정</h5>
                     <Button variant="outline-secondary" size="sm" onClick={() => this.setState({ modalShow: true })}>+</Button>
                 </div>
                 <div style={{clear:"both"}}>
