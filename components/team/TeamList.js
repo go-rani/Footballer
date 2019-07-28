@@ -16,22 +16,34 @@ class TeamList extends Component {
 
     constructor(props) {
         super(props)
-        db.collection('teams')
-            .get()
-            .then(res => {
-                const newTeams = []
-                res.forEach(doc => {
-                    const docData = doc.data()
-                    docData.id = doc.id
-                    newTeams.push(docData)
-                })
-                this.data.teams = newTeams
-                // console.log(newTeams)
+        this.data.teams = props.teams
+
+        // if (!props.teams) {
+        //     db.collection('my_team')
+        //         .get()
+        //         .then(res => {
+        //             const newTeams = []
+        //             res.forEach(doc => {
+        //                 const docData = doc.data()
+        //                 docData.id = doc.id
+        //                 newTeams.push(docData)
+        //             })
+        //             this.data.teams = newTeams
+        //         })
+        //         .catch(error => {
+        //             alert(error.message)
+        //             console.log(error)
+        //         })
+        // }
+        db.collection('teams').onSnapshot(res => {
+            const newTeams = []
+            res.forEach(doc => {
+                const docData = doc.data()
+                docData.id = doc.id
+                newTeams.push(docData)
             })
-            .catch(error => {
-                alert(error.message)
-                console.log(error)
-            })
+            this.data.teams = newTeams
+        })
     }
 
     render() {

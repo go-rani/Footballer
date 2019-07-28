@@ -33,7 +33,7 @@ class MyTeamList extends Component {
                 
                 <div style={{padding:"20px 0px"}}>
                     <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>팀 찾기</h5>
-                    <TeamList isLogin={this.state.login}/>
+                    <TeamList isLogin={this.state.login} teams={this.props.teamsData}/>
                 </div>
                 
                 {/* 로그인 안했으면 이벤트 더필요, 홈개념 */}
