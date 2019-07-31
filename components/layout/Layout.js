@@ -8,7 +8,8 @@ class Layout extends Component {
         return (
             <div style={{backgroundColor:"#fff"}}>
                 <Header/>
-                <div style={{padding:"20px 20px"}}>{this.props.children}</div>
+                    {this.props.children}
+                    {/* <div style={{padding:"20px 20px"}}>{this.props.children}</div> */}
                 <Footer/>
             </div>
         )

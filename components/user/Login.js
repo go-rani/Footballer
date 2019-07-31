@@ -99,7 +99,7 @@ class Login extends Component {
                     </ButtonToolbar>
                 )}
                 {user.info.uid !== "" &&(
-                   <DropdownButton variant="outline-secondary" title={user.info.displayName} size="sm" alignRight>
+                   <DropdownButton variant="outline-secondary" title={user.info.displayName} size="sm" alignRight style={{fontSize:"12px"}}>
                         <Link href="/teamreg"><a className="dropdown-item">팀등록</a></Link>
                         <Link href="/profile"><a className="dropdown-item">마이페이지</a></Link>
                         {/* <Link href="/myteam"><a className="dropdown-item">팀관리</a></Link> */}
@@ -107,6 +107,13 @@ class Login extends Component {
                         <Dropdown.Item size="sm" onClick={this._logout}>로그아웃</Dropdown.Item>
                     </DropdownButton>
                 )}
+                <style jsx>
+                    {`
+                        button {
+                            font-size: 12px;   
+                        }
+                    `}
+                </style>
             </div>
         )
     }

@@ -36,7 +36,7 @@ class MyTeam extends Component {
         // console.log(this.props.teamID)
         
         return (
-            <div>
+            <div style={{padding:"20px 20px"}}>
                 <div>
                     {/* <h5>공지사항</h5> */}
                     <MyNotice teamID={this.props.teamID}/>

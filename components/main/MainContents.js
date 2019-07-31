@@ -20,7 +20,7 @@ class MyTeamList extends Component {
     render() {
         
         return (
-            <div>
+            <div style={{padding:"0px 20px"}}>
                 <div style={{padding:"10px 0px 20px 0px"}}>
                     {/* <h5>Banner List</h5> */}
                     <BannerList />
@@ -45,7 +45,7 @@ class MyTeamList extends Component {
                     )
                 }
 
-                <div style={{padding:"20px 0px", clear:"both"}}>
+                <div style={{clear:"both"}}>
                     <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>추천 트레이닝</h5>
                     <EventList />
                 </div>

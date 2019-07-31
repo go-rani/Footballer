@@ -120,7 +120,7 @@ class TeamDetail extends Component {
     render() {
         
         return (
-            <div style={{minHeight:"600px"}}>
+            <div style={{minHeight:"600px", padding:"20px 20px"}}>
                 <div style={{paddingBottom:"30px"}}>
                     <ImageList />
                     {/* <BannerList /> */}

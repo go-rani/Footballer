@@ -24,13 +24,10 @@ class BannerList extends Component {
             <div className="container">
                 <Slider {...settings}>
                     <div>
-                      <h4>1 banner</h4>
+                      <h4>딱 맞는 트레이닝 찾고, 레벨업! 스킬업!</h4>
                     </div>
                     <div>
-                      <h4>2 banner</h4>
-                    </div>
-                    <div>
-                      <h4>3 banner</h4>
+                      <h4>뭉쳐야 찬다! 우리 동네 축구,풋살 팀은?</h4>
                     </div>
                     <div>
                       <h4>축구, 풋살 동호회 간편히 관리하자!</h4>

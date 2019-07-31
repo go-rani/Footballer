@@ -18,23 +18,6 @@ class TeamList extends Component {
         super(props)
         this.data.teams = props.teams
 
-        // if (!props.teams) {
-        //     db.collection('my_team')
-        //         .get()
-        //         .then(res => {
-        //             const newTeams = []
-        //             res.forEach(doc => {
-        //                 const docData = doc.data()
-        //                 docData.id = doc.id
-        //                 newTeams.push(docData)
-        //             })
-        //             this.data.teams = newTeams
-        //         })
-        //         .catch(error => {
-        //             alert(error.message)
-        //             console.log(error)
-        //         })
-        // }
         db.collection('teams').onSnapshot(res => {
             const newTeams = []
             res.forEach(doc => {
@@ -49,16 +32,16 @@ class TeamList extends Component {
     render() {
         let num = 0
         return (
-            <div>
+            <div style={{display:"flow-root"}}>
                 {this.data.teams.map( (team) => {
                     num = num +1
                     return (
-                        <div className="card_div" style={num%2 == 1 ? {paddingRight:"5px"} : {paddingLeft: "5px"}} key={team.id}>
+                        <div className="card_div" style={num%2 == 1 ? {paddingRight:"10px"} : {paddingLeft: "10px"}} key={team.id}>
                             {/* <Link route={`/teams/${team.id}`}> */}
                             <Link as={`/teams/${team.id}`} href={`/teams?teamId=${team.id}`}>
                                 <div style={{ width:"100%", position:"relative"}}>
                                     {/* <div style={{backgroundImage:`url(${team.emblem_thumb})`, width:"100%", paddingBottom: "75%", backgroundSize:"cover"}}></div> */}
-                                    <div style={{backgroundImage:`url(../static/team_test0${num}.png)`, width:"100%", paddingBottom: "75%", backgroundSize:"cover"}}></div>
+                                    <div style={{backgroundImage:`url(../static/team_test0${num}.png)`, width:"100%", paddingBottom: "75%", backgroundSize:"cover", borderRadius:"6px"}}></div>
                                     {/* <div style={{position:"absolute", width:"40px", height:"20px", right:"5%", top:"4%", backgroundColor:"#333",}}> */}
                                     <div className="tag">
                                         {team.category}
@@ -81,7 +64,7 @@ class TeamList extends Component {
                         .card_div {
                             width: 50%;
                             float: left;
-                            padding-bottom: 15px;
+                            padding-bottom: 20px;
                         }
 
                         .tag {

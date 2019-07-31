@@ -11,11 +11,13 @@ class Header extends Component {
                 <Navbar sticky="top" className="container" style={{paddingLeft:"0px", paddingRight:"0px"}}>
                     {/* <img src="" style={{width:"40px",marginRight:"8px"}}/> */}
                     <Link href="/">
-                        <a className="navbar-brand font-weight-bold mr-0">FOOTBALLER</a>
+                        <a className="navbar-brand font-weight-bold mr-0" style={{letterSpacing:"-6px"}}>FOOTBALLER</a>
                     </Link>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
-                        <Link href="/search?keyword=something"><a className="ml-3 text-decoration-none text-reset">팀찾기</a></Link>
+                        <Link href="/teachList"><a className="mr-3 text-decoration-none text-reset">트레이닝</a></Link>
+                        <Link href="/teamList"><a className="mr-3 text-decoration-none text-reset">팀찾기</a></Link>
+                        {/* <Link href="/search?keyword=something"><a className="ml-3 text-decoration-none text-reset">팀찾기</a></Link> */}
                         <Login />
                         {/* <Link href="/"><a className="ml-3 text-decoration-none text-reset"></a></Link> */}
                     </Navbar.Collapse>

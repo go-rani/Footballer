@@ -71,7 +71,7 @@ class TeamRegister extends Component {
 
     render() {
         return (
-            <div style={{padding:"20px 0px"}}>
+            <div style={{padding:"20px 20px"}}>
                 <Card border="info">
                     <Card.Header className="bg-info" style={{color:'white'}}>팀 등록: 간편하게 등록하기</Card.Header>
                     <Card.Body>
