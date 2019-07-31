@@ -14,6 +14,7 @@ class BannerList extends Component {
     render() {
         var settings = {
             dots: true,
+            arrows: false,
             infinite: true,
             speed: 300,
             slidesToShow: 1,
@@ -24,10 +25,10 @@ class BannerList extends Component {
             <div className="container">
                 <Slider {...settings}>
                     <div>
-                      <h4>딱 맞는 트레이닝 찾고, 레벨업! 스킬업!</h4>
+                      <h4>딱 맞는 트레이닝 찾고, 스킬업! 레벨업!</h4>
                     </div>
                     <div>
-                      <h4>뭉쳐야 찬다! 우리 동네 축구,풋살 팀은?</h4>
+                      <h4>뭉쳐야 찬다! 우리 동네 축구, 풋살 팀은?</h4>
                     </div>
                     <div>
                       <h4>축구, 풋살 동호회 간편히 관리하자!</h4>
@@ -38,6 +39,7 @@ class BannerList extends Component {
                         .container {
                             margin: 0 auto;
                             color: #333;
+                            padding: 0px;
                           }
                           
                           h4 {

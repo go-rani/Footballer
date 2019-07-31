@@ -45,7 +45,7 @@ class TeachSearch extends Component {
                             <option>인천</option>
                             <option>부산</option>
                         </select>
-                        <select className="select_cate01" style={{width:"78px"}}>
+                        <select className="select_cate01" style={{width:"22%"}}>
                             <option>성남시</option>
                             <option>시흥시</option>
                             <option>안양시</option>
@@ -68,30 +68,14 @@ class TeachSearch extends Component {
                                         <div style={{display:"flex"}}>
                                             <div className="thumb_wrap">
                                                 <div style={{backgroundImage:`url(../static/team_test0${num}.png)`}} className="thumb_img"></div>
-                                                <div className="tag">{team.category}</div>
                                             </div>
                                             <div className="info_wrap">
                                                 <p className="title">{team.club_name}</p>
                                                 <p className="content"><small>{team.location} </small></p>
                                                 <p className="content"><small>{team.location} </small></p>
+                                                <div className="tag">{team.category}</div>
                                             </div>
                                         </div>
-        
-                                        {/* <div style={{ width:"100%", position:"relative"}}>
-                                            <div style={{width:"30%", float:"left"}}>
-                                                <div style={{backgroundImage:`url(../static/team_test0${num}.png)`, width:"100%", paddingBottom: "75%", backgroundSize:"cover"}}></div>
-                                                <div className="tag">
-                                                    {team.category}
-                                                </div>
-                                            </div>
-                                            <div style={{width:"70%", float:"left"}}>
-                                                <div style={{paddingLeft:"10px"}}>
-                                                    <p className="title">{team.club_name}</p>
-                                                    <p className="content"><small>{team.location} </small></p>
-                                                    <p className="content"><small>{team.location} </small></p>
-                                                </div>
-                                            </div>
-                                        </div> */}
                                     </Link>
                                 </div>
                             )
@@ -120,7 +104,7 @@ class TeachSearch extends Component {
 
                         .select_cate01 {
                             position: relative;
-                            width: 65px;
+                            width: 19%;
                             padding-left: 8px;
                             display: inline-block;
                             -webkit-box-sizing: border-box;
@@ -137,13 +121,13 @@ class TeachSearch extends Component {
                         }
 
                         .btn_search {
-                            margin-left: 16px;
+                            margin-left: 17px;
                             background-color: #444;
                             padding: 0 11px;
                             border-radius: 6px;
                             font-size: 14px;
                             color: #fff;
-                            width: 90px;
+                            width: 28%;
                             border: 0px;
                             display: inline-block;
                             line-height: 32px;
@@ -192,7 +176,7 @@ class TeachSearch extends Component {
                             border-radius: 3px;
                             background: rgba(0,0,0,.2);
                             color: #fff;
-                            width: 100%px;
+                            width: 50px;
                             height: 20px;
                             font-size: 12px;
                             font-weight: 400;
@@ -210,8 +194,8 @@ class TeachSearch extends Component {
                         .thumb_img {
                             background-size: cover;
                             position: relative;
-                            width: 90px;
-                            height: 90px;
+                            width: 100px;
+                            height: 100px;
                             border-radius: 3px;
                         }
 

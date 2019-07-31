@@ -44,7 +44,7 @@ class TeamSearch extends Component {
                             <option>풋살</option>
                             <option>축구</option>
                         </select>
-                        <select className="select_cate01" style={{width:"78px"}}>
+                        <select className="select_cate01">
                             <option>서울</option>
                             <option>경기</option>
                             <option>인천</option>
@@ -100,7 +100,7 @@ class TeamSearch extends Component {
 
                         .select_cate01 {
                             position: relative;
-                            width: 65px;
+                            width: 20%;
                             padding-left: 8px;
                             display: inline-block;
                             -webkit-box-sizing: border-box;
@@ -117,13 +117,13 @@ class TeamSearch extends Component {
                         }
 
                         .btn_search {
-                            margin-left: 16px;
+                            margin-left: 17px;
                             background-color: #444;
                             padding: 0 11px;
                             border-radius: 6px;
                             font-size: 14px;
                             color: #fff;
-                            width: 90px;
+                            width: 28%;
                             border: 0px;
                             display: inline-block;
                             line-height: 32px;

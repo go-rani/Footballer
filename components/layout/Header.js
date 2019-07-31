@@ -11,7 +11,8 @@ class Header extends Component {
                 <Navbar sticky="top" className="container" style={{paddingLeft:"0px", paddingRight:"0px"}}>
                     {/* <img src="" style={{width:"40px",marginRight:"8px"}}/> */}
                     <Link href="/">
-                        <a className="navbar-brand font-weight-bold mr-0" style={{letterSpacing:"-6px"}}>FOOTBALLER</a>
+                        <img src="/static/test1.png" style={{width:"95px", paddingBottom:"3px"}} />
+                        {/* <a className="navbar-brand font-weight-bold mr-0" style={{letterSpacing:"-6px"}}>FOOTBALLER</a> */}
                     </Link>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">

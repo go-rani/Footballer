@@ -68,7 +68,7 @@ class EventList extends Component {
                                 <Card.Body>
                                     <div>
                                         <p style={{marginBottom:"5px", fontWeight:"bold"}}>FOOTBALLER 풋볼러</p>
-                                        <p style={{fontSize:"10pt", marginBottom:"0px"}}>“Connect Everything” 새로운 연결, 더 나은 세상 </p>
+                                        <p style={{fontSize:"10pt", marginBottom:"0px"}}>Connect everything in FOOTBALLER</p>
                                     </div>
                                 </Card.Body>
                             </Card>

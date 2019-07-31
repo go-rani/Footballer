@@ -94,12 +94,13 @@ class Login extends Component {
                 {user.info.uid === "" &&(
                     // <Button variant="outline-secondary" size="sm" onClick={this._login}>로그인</Button>
                     <ButtonToolbar> 
-                        <Button variant="outline-secondary" size="sm" onClick={() => this.setState({ modalShow: true })}>로그인</Button>
+                        <Button variant="outline-secondary" size="sm" onClick={() => this.setState({ modalShow: true })}>OUT</Button>
                         <LogindModal show={this.state.modalShow} onHide={modalClose} />
                     </ButtonToolbar>
                 )}
                 {user.info.uid !== "" &&(
-                   <DropdownButton variant="outline-secondary" title={user.info.displayName} size="sm" alignRight style={{fontSize:"12px"}}>
+                   <DropdownButton variant="outline-secondary" title="IN" size="sm" alignRight style={{fontSize:"12px"}}>
+                        <a className="dropdown-item">HI! {user.info.displayName}님</a>
                         <Link href="/teamreg"><a className="dropdown-item">팀등록</a></Link>
                         <Link href="/profile"><a className="dropdown-item">마이페이지</a></Link>
                         {/* <Link href="/myteam"><a className="dropdown-item">팀관리</a></Link> */}
