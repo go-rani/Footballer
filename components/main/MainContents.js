@@ -20,18 +20,18 @@ class MyTeamList extends Component {
     render() {
         
         return (
-            <div style={{padding:"0px 20px"}}>
-                <div style={{padding:"10px 0px 20px 0px"}}>
+            <div>
+                <div style={{padding:"2px 20px"}}>
                     {/* <h5>Banner List</h5> */}
                     <BannerList />
                 </div>
 
-                <div style={{padding:"20px 0px"}}>
+                <div style={{padding:"20px 20px"}}>
                     {/* <h5>MY TEAM</h5> */}
                     <MyHome isLogin={this.state.login}/>
                 </div>
                 
-                <div style={{padding:"20px 0px"}}>
+                <div style={{padding:"20px 20px"}}>
                     <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>팀 찾기</h5>
                     <TeamList isLogin={this.state.login} teams={this.props.teamsData}/>
                 </div>
@@ -46,7 +46,6 @@ class MyTeamList extends Component {
                 }
 
                 <div style={{clear:"both"}}>
-                    <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>추천 트레이닝</h5>
                     <EventList />
                 </div>
 
