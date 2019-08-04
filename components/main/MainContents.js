@@ -21,7 +21,7 @@ class MyTeamList extends Component {
         
         return (
             <div>
-                <div style={{padding:"2px 20px"}}>
+                <div style={{padding:"15px 0px", marginBottom: "10px"}}>
                     {/* <h5>Banner List</h5> */}
                     <BannerList />
                 </div>

@@ -43,11 +43,12 @@ class BannerList extends Component {
                           }
                           
                           h4 {
-                            font-size: 18px;
+                            font-size: 17px;
                             font-weight: bold;
                             line-height: 60px;
                             position: relative;
                             text-align: center;
+                            margin: 0px;
                           }
                           
                           }

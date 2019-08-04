@@ -16,6 +16,10 @@ const Search = () => {
     const [value, setValue] = useState("none")
     const [checked, setChecked] = useState("true")
 
+    const [cate01, setCate01] = useState("ALL")
+    const [cate02, setCate02] = useState("지역")
+    const [cate03, setCate03] = useState("요일")
+
     const displayChage = (e, index) => {
         if (value == "none") setValue("block")
         else setValue("none")
@@ -67,7 +71,7 @@ const Search = () => {
     return (
         <div className="search_wrap">
             <div className="select_wrap">
-                <input type="button" className="btn_reset" reset-checked={resetKey} onClick={filterInit} value="reset" />
+                <input type="button" className="btn_reset" reset-checked={resetKey} onClick={filterInit} value="re"/>
                 <input type="button" className="btn_cate checked" onClick={e => displayChage(e, 1)} value="ALL" />
                 <input type="button" className="btn_cate" onClick={e => displayChage(e, 2)} value="지역" />
                 <input type="button" className="btn_cate" onClick={e => displayChage(e, 3)} value="요일" />
@@ -113,19 +117,23 @@ const Search = () => {
                         border-top: 1px solid #efefef;
                         border-bottom: 1px solid #efefef;
                         line-height: 58px;
-                        background-color: #f4f7f8;
+                        background-color: #fff;
                     }
 
                     .select_btn {
-                        padding: 10px 20px;
-                        background-color: #f2f2f2;
+                        padding: 10px 20px 0px 20px;
+                        background-color: #f4f7f8;
+                        border-bottom: 1px solid #efefef;
                     }
 
                     .btn_reset {
-                        background-color: #fff;
+                        background: transparent url('/static/icon/icon_reset_off.png');
+                        background-position:center;
+                        background-repeat:no-repeat;
+                        background-size: 16px;
+                        color: transparent;
                         border: solid 1px #adb5bd;
                         border-radius: 2px;
-                        color: #6c757d;
                         margin-right: 10px;
                         padding: 0 11px;
                         border-radius: 6px;
@@ -135,9 +143,11 @@ const Search = () => {
                     }
 
                     .btn_reset[reset-checked="true"] {
-                        color: #4383EF;
-                        border: solid 1px #4383EF;
-                        background-color: #fff;
+                        border: solid 1px #3897F0;
+                        background: transparent url('/static/icon/icon_reset.png');
+                        background-position:center;
+                        background-repeat:no-repeat;
+                        background-size: 16px;
                     }
 
                     .btn_cate {
@@ -154,8 +164,8 @@ const Search = () => {
                     }
 
                     .checked {
-                        color: #4383EF;
-                        border: solid 1px #4383EF;
+                        color: #3897F0;
+                        border: solid 1px #3897F0;
                         background-color: #fff;
                     }
                     
@@ -175,7 +185,7 @@ const Search = () => {
 
                     .test {
                         color: #fff;
-                        background-color: #4383EF;
+                        background-color: #3897F0;
                     }
 
                 `}
@@ -208,31 +218,6 @@ class TeachSearch extends Component {
         return (
             <div>
                 <Search />
-                {/* <div className="search_wrap">
-                    <div className="select_wrap">
-                        <select className="select_cate01">
-                            <option>풋살</option>
-                            <option>축구</option>
-                        </select>
-                        <select className="select_cate01" style={{margin:"0px 10px"}}>
-                            <option>서울</option>
-                            <option>경기</option>
-                            <option>인천</option>
-                            <option>부산</option>
-                        </select>
-                        <select className="select_cate01" style={{width:"22%"}}>
-                            <option>성남시</option>
-                            <option>시흥시</option>
-                            <option>안양시</option>
-                            <option>안산시</option>
-                            <option>부천시</option>
-                        </select>
-                        <button className="btn_search">검색</button>
-                    </div>
-                    <div className="input_wrap">
-                        <input className="input_search" placeholder="검색"/>
-                    </div>
-                </div> */}
                 <div style={{padding:"15px 20px", clear:"both"}}>
                     <div style={{display:"flow-root"}}>
                         {this.data.teams.map( (team) => {

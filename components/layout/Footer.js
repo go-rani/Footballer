@@ -20,7 +20,9 @@ class Footer extends Component {
                             <Link href="/privacy"><span>개인정보처리방침</span></Link>
                         </div>
                         <div style={{float:"right"}}>
-                            <a href="https://www.instagram.com/footballer.korea/" target="_blank"><small>인스타</small></a>
+                            <a href="https://www.instagram.com/footballer.korea/" target="_blank">
+                                <img src="/static/icon/icon_insta.png" style={{width:"17px"}}/>
+                            </a>
                         </div>
                     </div>
                     <div style={{clear:"both"}}><small>© 2019 FOOTBALLER, All rights reserved.</small></div>
