@@ -26,10 +26,13 @@ class MyTeamList extends Component {
                     <BannerList />
                 </div>
 
-                <div style={{padding:"20px 20px"}}>
-                    {/* <h5>MY TEAM</h5> */}
+                {/* <div style={{padding:"20px 20px"}}>
+                    트레이닝
+                </div> */}
+
+                {/* <div style={{padding:"20px 20px"}}>
                     <MyHome isLogin={this.state.login}/>
-                </div>
+                </div> */}
                 
                 <div style={{padding:"20px 20px"}}>
                     <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>팀 찾기</h5>

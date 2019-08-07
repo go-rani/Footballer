@@ -8,7 +8,7 @@ class Header extends Component {
     render() {
         return (
             <div style={{width:"100%", padding:"0 20px"}}>
-                <Navbar sticky="top" className="container" style={{paddingLeft:"0px", paddingRight:"0px"}}>
+                <Navbar sticky="top" className="container" style={{padding:"15px 0px"}}>
                     {/* <img src="" style={{width:"40px",marginRight:"8px"}}/> */}
                     <Link href="/">
                         <img src="/static/logo.png" style={{width:"100px"}} />
