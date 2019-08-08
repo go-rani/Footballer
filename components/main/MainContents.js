@@ -5,6 +5,7 @@ import MyHome from '../user/MyHome';
 import TeamList from '../team/TeamList';
 import BannerList from './BannerList';
 import EventList from './EventList_copy';
+import StripBanner from './StripBanner';
 
 
 class MyTeamList extends Component {
@@ -49,6 +50,7 @@ class MyTeamList extends Component {
                 }
 
                 <div style={{clear:"both"}}>
+                    <StripBanner />
                     <EventList />
                 </div>
 

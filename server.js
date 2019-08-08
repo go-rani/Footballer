@@ -32,6 +32,12 @@ app.prepare().then(() => {
         app.render(req, res, actualPage, queryParams)
     })
 
+    server.get('/teach/:teamId', (req, res) => {
+        const actualPage = '/teach'
+        const queryParams = { title: req.params.id }
+        app.render(req, res, actualPage, queryParams)
+    })
+
     server.get('*', (req, res) => {
         return handle(req, res)
     })

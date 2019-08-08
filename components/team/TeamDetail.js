@@ -6,7 +6,7 @@ import uuid from 'uuid/v4';
 import user from '../../common/store/user';
 import { Card, Button, Alert, Badge } from 'react-bootstrap';
 
-import ImageList from './ImageList';
+import ImageList from '../common/ImageList';
 import BannerList from '../main/BannerList';
 
 class Data {
@@ -33,7 +33,7 @@ class TeamDetail extends Component {
 
         this._handleClose = this._handleClose.bind(this)
         this._handleShow = this._handleShow.bind(this)
-
+        
         if (this.props.teamID) {
             //팀 정보 가져오기
             db.collection('teams').doc(this.props.teamID)

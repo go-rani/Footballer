@@ -9,6 +9,11 @@ module.exports = routes()
         page: "teams"
     })
     .add({
+        name: "teach",
+        pattern: "/teach/:teamId",
+        page: "teach"
+    })
+    .add({
         name: "myteams",
         pattern: "/myteams/:teamId",
         page: "myteams"

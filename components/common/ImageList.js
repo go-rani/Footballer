@@ -49,13 +49,15 @@ class ImageList extends Component {
                           }
                           
                           }
-                          .slick-dots li button:before
-                          {
-                              font-size: 10px;
-                              line-height: 10px;
-                          }
-
-                          
+                        .slick-dots { bottom: 25px; }
+                        .slick-dots li.slick-active button:before {
+                            color: #fff !important;
+                        }
+                        .slick-dots li button:before {
+                            font-size: 10px;
+                            line-height: 10px;
+                            color: #fff !important;
+                        }
                     `}
                 </style>
             </div>

@@ -38,7 +38,7 @@ class EventList extends Component {
             <div>
                 <div className="subscribe_wrap">
                     <div className="text_wrap">
-                        <p>삶을 더 잘살기 위한 이야기,</p>
+                        <p>축구/풋살을 더 즐기기 위한 이야기,</p>
                         <p><span>FOOTBALLER</span>를 구독해보세요.</p>
                     </div>
                     <div className="email_wrap">
@@ -96,6 +96,10 @@ class EventList extends Component {
                             box-shadow: none;
                             text-align: left;
                             border: 0;
+                        }
+
+                        input[type="text"]
+                            font-size: inherit;
                         }
 
                         .email_send {

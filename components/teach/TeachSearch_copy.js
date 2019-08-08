@@ -74,7 +74,7 @@ class TeachSearch extends Component {
                         <div className="cate01 sub" onClick={e => this._selectedSub(e, ".cate01")}>축구</div>
                         <div className="cate01 sub" onClick={e => this._selectedSub(e, ".cate01")}>풋살</div>
                     </div>
-                    <div className="select _border">
+                    <div className="select">
                         <div className="cate02 sub fick" onClick={e => this._selectedSub(e, ".cate02")}>Wherever</div>
                         <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>서울</div>
                         <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>인천</div>
@@ -95,7 +95,7 @@ class TeachSearch extends Component {
                             num = num +1
                             return (
                                 <div className="product_item" key={team.id}>
-                                    <Link as={`/teams/${team.id}`} href={`/teams?teamId=${team.id}`}>
+                                    <Link as={`/teach/${team.id}`} href={`/teach?teamId=${team.id}`}>
                                         <div style={{display:"flex"}}>
                                             <div className="thumb_wrap">
                                                 <div style={{backgroundImage:`url(../static/team_test0${num}.png)`}} className="thumb_img"></div>
@@ -141,19 +141,15 @@ class TeachSearch extends Component {
                         .select_wrap {
                             background-color: #333333;
                             color: #fff;
-                            font-size: 13px
-                        }
-
-                        .select_wrap ._border {
-                            border-top: 1px solid #666666;
-                            border-bottom: 1px solid #666666;
+                            font-size: 13px;
+                            padding-bottom: 5px;
                         }
 
                         .select {
                             display: flex;
                             padding-top: 17px;
-                            padding-bottom: 15px;
                             margin: 0px 20px;
+                            border-bottom: 1px solid #444444;
                         }
 
                         .select .sub {
@@ -162,7 +158,8 @@ class TeachSearch extends Component {
                         }
 
                         .select .fick {
-                            border-bottom: 1px solid #fff;
+                            padding-bottom: 10px;
+                            border-bottom: 2px solid #fff;
                         }
 
 
@@ -200,9 +197,8 @@ class TeachSearch extends Component {
                         .thumb_img {
                             background-size: cover;
                             position: relative;
-                            width: 100px;
-                            height: 100px;
-                            border-radius: 3px;
+                            width: 97px;
+                            height: 97px;
                         }
 
                         .info_wrap {
