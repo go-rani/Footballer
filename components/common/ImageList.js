@@ -9,7 +9,7 @@ class ImageList extends Component {
 
     render() {
         let settings = {
-            dots: true,
+            dots: false,
             arrows: false,
             infinite: true,
             speed: 300,
@@ -53,7 +53,7 @@ class ImageList extends Component {
                         .slick-dots li.slick-active button:before {
                             color: #fff !important;
                         }
-                        .slick-dots li button:before {
+                        button:before {
                             font-size: 10px;
                             line-height: 10px;
                             color: #fff !important;

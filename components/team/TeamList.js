@@ -48,7 +48,11 @@ class TeamList extends Component {
                                     </div>
                                     <div style={{paddingTop:"8px"}}>
                                         <p className="title">{team.club_name}</p>
-                                        <p className="content"><small>{team.gender}, {team.location} </small></p>
+                                        <div className="content">
+                                            <span>{team.gender} | </span>
+                                            {/* <img src="/static/icon/icon_location_gray.png" /> */}
+                                            <span>{team.location}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </Link>
@@ -89,6 +93,12 @@ class TeamList extends Component {
                         }
                         .content {
                             color: #666;
+                            font-size: 12px;
+                        }
+                        .content img {
+                            width: 10px;
+                            margin-right: 3px;
+                            margin-bottom: 2px;
                         }
                     `}
                 </style>
