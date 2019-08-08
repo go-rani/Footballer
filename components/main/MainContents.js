@@ -4,7 +4,7 @@ import { Button, Alert } from 'react-bootstrap';
 import MyHome from '../user/MyHome';
 import TeamList from '../team/TeamList';
 import BannerList from './BannerList';
-import EventList from './EventList';
+import EventList from './EventList_copy';
 
 
 class MyTeamList extends Component {

@@ -41,7 +41,7 @@ class TeamList extends Component {
                             <Link as={`/teams/${team.id}`} href={`/teams?teamId=${team.id}`}>
                                 <div style={{ width:"100%", position:"relative"}}>
                                     {/* <div style={{backgroundImage:`url(${team.emblem_thumb})`, width:"100%", paddingBottom: "75%", backgroundSize:"cover"}}></div> */}
-                                    <div style={{backgroundImage:`url(../static/team_test0${num}.png)`, width:"100%", paddingBottom: "75%", backgroundSize:"cover", borderRadius:"6px"}}></div>
+                                    <div style={{backgroundImage:`url(../static/team_test0${num}.png)`, width:"100%", paddingBottom: "75%", backgroundSize:"cover"}}></div>
                                     {/* <div style={{position:"absolute", width:"40px", height:"20px", right:"5%", top:"4%", backgroundColor:"#333",}}> */}
                                     <div className="tag">
                                         {team.category}
