@@ -103,7 +103,7 @@ class Login extends Component {
                 {user.info.uid !== "" &&(
                    <DropdownButton variant="outline-secondary" title="@" size="sm" alignRight style={{fontSize:"12px"}}>
                         <a className="dropdown-item">HI! {user.info.displayName}님</a>
-                        <Link href="/teamreg"><a className="dropdown-item">팀등록</a></Link>
+                        {/* <Link href="/teamreg"><a className="dropdown-item">팀등록</a></Link> */}
                         <Link href="/profile"><a className="dropdown-item">마이페이지</a></Link>
                         {/* <Link href="/myteam"><a className="dropdown-item">팀관리</a></Link> */}
                         <Dropdown.Divider />

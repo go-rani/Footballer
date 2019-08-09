@@ -49,8 +49,8 @@ class MyTeamList extends Component {
                     )
                 }
 
-                <div style={{clear:"both"}}>
-                    <StripBanner innerText="풋볼러에 트레이닝을 등록해보세요."/>
+                <div style={{clear:"both", paddingTop:"20px"}}>
+                    <StripBanner innerText="풋볼러에 팀을 등록해보세요." innerUrl="https://forms.gle/tnK8YSSu7YH6kqUB9"/>
                     <EventList />
                 </div>
 

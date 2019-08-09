@@ -58,7 +58,10 @@ class TeachDetail extends Component {
             <div style={{minHeight:"600px"}}>
                 <ImageList />
                 <div className="data_wrap">
-                    <div><h5>고고고~ 알레 알레</h5></div>
+                    <div className="title_wrap">
+                        <h5>고고고~ 알레 알레</h5>
+                        <button className="btn_status">모집 중</button>
+                    </div>
                     <div className="section01">
                         <div className="section_tag">
                         <img src="/static/icon/icon_location.png" />
@@ -86,7 +89,7 @@ class TeachDetail extends Component {
                         </div>
                     </div>
                     <div className="section02">
-                        <button>모집중 / 등록하기</button>
+                        <button>문의 하기</button>
                         {/* <div>sns</div>
                         <div>모집중</div> */}
                     </div>
@@ -184,6 +187,25 @@ class TeachDetail extends Component {
                         .data_wrap {
                             padding: 22px 20px;
                         }
+                        .data_wrap .title_wrap {
+                            display: flex;
+                        }
+                        .data_wrap .title_wrap h5 { 
+                            margin: 0px; 
+                            padding-bottom: 5px;
+                            padding-right: 10px;
+                        }
+                        .data_wrap .title_wrap .btn_status {
+                            border: 1px solid #ed4956;
+                            background: #fff;
+                            padding: 0px 6px;
+                            border-radius: 3px;
+                            margin-bottom: 5px;
+                            font-size: 11px;
+                            color: #ed4956;
+                            display: inline-block;
+                            // box-shadow: 0 2px 8px 0 rgba(37, 50, 67, 0.18), 0 1px 1px 0 rgba(37, 50, 67, 0.03);
+                        }
 
                         .section01 {
                             padding: 10px 0px;
@@ -209,6 +231,7 @@ class TeachDetail extends Component {
                             border-radius: 4px !important;
                             background: #3897F0;
                             color: #fff;
+                            box-shadow: 0 2px 8px 0 rgba(37,50,67,0.18), 0 1px 1px 0 rgba(37,50,67,0.03);
                         }
 
                         .section03 {

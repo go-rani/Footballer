@@ -5,6 +5,8 @@ import db from '../../common/db';
 import { observable } from 'mobx';
 import { observer } from "mobx-react";
 
+import StripBanner from '../common/StripBanner';
+
 class Data {
     @observable teams = [];
 }
@@ -58,6 +60,7 @@ class TeachSearch extends Component {
 
     render() {
         let num = 0
+        let num_ = 0
         return (
             <div>
                 <div className="search_wrap">
@@ -99,12 +102,43 @@ class TeachSearch extends Component {
                                         <div style={{display:"flex"}}>
                                             <div className="thumb_wrap">
                                                 <div style={{backgroundImage:`url(../static/team_test0${num}.png)`}} className="thumb_img"></div>
+                                                <div className="tag">{team.category}</div>
                                             </div>
                                             <div className="info_wrap">
-                                                <p className="title">{team.club_name}</p>
-                                                <p className="content"><small>{team.location} </small></p>
-                                                <p className="content"><small>{team.location} </small></p>
+                                                <div className="title_wrap">
+                                                    <p className="title">{team.club_name}</p>
+                                                    <button className="btn_status">모집 중</button>
+                                                </div>
+                                                <p className="content"><small>서울시 > 상암동 > 월드컵 경기 1구장</small></p>
+                                                <p className="content"><small>매주 금요일 21:00 ~ 23:00</small></p>
+                                                <p className="content"><small>18만원 | 그룹인원 30명</small></p>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <StripBanner innerText="풋볼러에 트레이닝을 등록해보세요." innerUrl="https://forms.gle/F2R3Jk4qLM83MnD47"/>
+                    <div style={{display:"flow-root"}}>
+                        {this.data.teams.map( (team) => {
+                            num_ = num_ +1
+                            return (
+                                <div className="product_item" key={team.id}>
+                                    <Link as={`/teach/${team.id}`} href={`/teach?teamId=${team.id}`}>
+                                        <div style={{display:"flex"}}>
+                                            <div className="thumb_wrap">
+                                                <div style={{backgroundImage:`url(../static/team_test0${num_}.png)`}} className="thumb_img"></div>
                                                 <div className="tag">{team.category}</div>
+                                            </div>
+                                            <div className="info_wrap">
+                                                <div className="title_wrap">
+                                                    <p className="title">{team.club_name}</p>
+                                                    <button className="btn_status">모집 중</button>
+                                                </div>
+                                                <p className="content"><small>서울시 > 상암동 > 월드컵 경기 1구장</small></p>
+                                                <p className="content"><small>매주 금요일 21:00 ~ 23:00</small></p>
+                                                <p className="content"><small>18만원 | 그룹인원 30명</small></p>
                                             </div>
                                         </div>
                                     </Link>
@@ -178,20 +212,23 @@ class TeachSearch extends Component {
                         }
 
                         .tag {
-                            border-radius: 3px;
-                            background: rgba(0,0,0,.2);
+                            position: absolute;
+                            right: 0%;
+                            top: 0%;
+                            // border-radius: 3px;
+                            background: rgba(0,0,0,0.8);
                             color: #fff;
-                            width: 50px;
+                            width: 38px;
                             height: 20px;
                             font-size: 12px;
                             font-weight: 400;
                             justify-content: center;
                             align-items: center;
                             display: flex;
-                            margin-top: 5px;
                         }
 
                         .thumb_wrap {
+                            position: relative;
                             flex-shrink: 0;
                             margin-right: 15px;
                         }
@@ -208,12 +245,25 @@ class TeachSearch extends Component {
                             flex-shrink: 1;
                         }
 
+                        .title_wrap { display: flex; }
                         .title {
                             font-weight: bold;
                             color: #111111;
                         }
                         .content {
                             color: #666;
+                        }
+                        .btn_status {
+                            margin-top: 4px;
+                            margin-bottom: 4px;
+                            border: 1px solid #ed4956;
+                            background: #fff;
+                            padding: 0px 2px;
+                            font-size: 11px;
+                            color: #ed4956;
+                            display: inline-block;
+                            margin-left: 5px;
+                            // box-shadow: 0 2px 8px 0 rgba(37, 50, 67, 0.18), 0 1px 1px 0 rgba(37, 50, 67, 0.03);
                         }
                     `}
                 </style>

@@ -4,7 +4,8 @@ import Link from 'next/link';
 import db from '../../common/db';
 import { observable } from 'mobx';
 import { observer } from "mobx-react";
-import { Card, Image, Row, Col } from 'react-bootstrap';
+
+import StripBanner from '../common/StripBanner';
 
 class Data {
     @observable teams = [];
@@ -17,6 +18,9 @@ class TeamSearch extends Component {
     constructor(props) {
         super(props)
         this.data.teams = props.teamsData
+        this.state = {
+            select_show: "none",
+        }
 
         db.collection('teams').onSnapshot(res => {
             const newTeams = []
@@ -29,34 +33,64 @@ class TeamSearch extends Component {
         })
     }
 
+
+    _selectDisplay = () => {
+        if (this.state.select_show == "none") this.setState({select_show: "block"})
+        else this.setState({select_show: "none"})
+    }
+
+    _selectedSub = (e, key) => {
+        const text = e.currentTarget.innerText
+        const data_cate = Array.from(document.querySelectorAll(key))
+        data_cate.map((arr, index) => {
+            arr.classList.remove('fick')
+        })
+        e.currentTarget.classList.add('fick')
+        switch(key) {
+            case '.cate01':
+                return this.refs.cate01.innerText = text
+            case '.cate02':
+                return this.refs.cate02.innerText = text
+            case '.cate03':
+                return this.refs.cate03.innerText = text
+            default:
+                return null;
+        }
+    }
+
     render() {
         let num = 0
+        let num_ = 0
         return (
             <div>
                 <div className="search_wrap">
-                    <div className="select_wrap">
-                        <select className="select_cate01">
-                            <option>혼성</option>
-                            <option>남성</option>
-                            <option>여성</option>
-                        </select>
-                        <select className="select_cate01" style={{margin:"0px 10px"}}>
-                            <option>풋살</option>
-                            <option>축구</option>
-                        </select>
-                        <select className="select_cate01">
-                            <option>서울</option>
-                            <option>경기</option>
-                            <option>인천</option>
-                            <option>부산</option>
-                        </select>
-                        <button className="btn_search">검색</button>
+                    <div className="selected_wrap">
+                        <div ref="cate01" className="selected">혼성</div>
+                        <div ref="cate03" className="selected">ALL</div>
+                        <div ref="cate02" className="selected">Wherever</div>
                     </div>
-                    <div className="input_wrap">
-                        <input className="input_search" placeholder="검색"/>
+                    <div className="selected" style={{margin:"0px"}} onClick={this._selectDisplay}>^</div>
+                </div>
+                <div className="select_wrap" style={{display:`${ this.state.select_show }`}}>
+                    <div className="select">
+                        <div className="cate01 sub fick" onClick={e => this._selectedSub(e, ".cate01")}>혼성</div>
+                        <div className="cate01 sub" onClick={e => this._selectedSub(e, ".cate01")}>남성</div>
+                        <div className="cate01 sub" onClick={e => this._selectedSub(e, ".cate01")}>여성</div>
+                    </div>
+                    <div className="select">
+                        <div className="cate03 sub fick" onClick={e => this._selectedSub(e, ".cate03")}>ALL</div>
+                        <div className="cate03 sub" onClick={e => this._selectedSub(e, ".cate03")}>축구</div>
+                        <div className="cate03 sub" onClick={e => this._selectedSub(e, ".cate03")}>풋살</div>
+                    </div>
+                    <div className="select">
+                        <div className="cate02 sub fick" onClick={e => this._selectedSub(e, ".cate02")}>Wherever</div>
+                        <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>서울</div>
+                        <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>인천</div>
+                        <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>경기</div>
+                        <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>부산</div>
                     </div>
                 </div>
-                <div style={{display:"flow-root", margin:"20px", paddingTop:"15px", borderTop: "1px solid #eff3f6"}}>
+                <div style={{display:"flow-root", paddingTop:"10px", marginTop:"20px", marginLeft:"20px", marginRight:"20px"}}>
                     {this.data.teams.map( (team) => {
                         num = num +1
                         return (
@@ -64,13 +98,16 @@ class TeamSearch extends Component {
                                 {/* <Link route={`/teams/${team.id}`}> */}
                                 <Link as={`/teams/${team.id}`} href={`/teams?teamId=${team.id}`}>
                                     <div style={{ width:"100%", position:"relative"}}>
-                                        <div style={{backgroundImage:`url(../static/team_test0${num}.png)`, width:"100%", paddingBottom: "75%", backgroundSize:"cover", borderRadius:"6px"}}></div>
+                                        <div style={{backgroundImage:`url(../static/team_test0${num}.png)`, width:"100%", paddingBottom: "75%", backgroundSize:"cover"}}></div>
                                         <div className="tag">
                                             {team.category}
                                         </div>
                                         <div style={{paddingTop:"8px"}}>
                                             <p className="title">{team.club_name}</p>
-                                            <p className="content"><small>{team.gender}, {team.location} </small></p>
+                                            <div className="content">
+                                                <span className="gender">{team.gender}</span>
+                                                <span>{team.location}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </Link>
@@ -78,90 +115,89 @@ class TeamSearch extends Component {
                         )
                     })}
                 </div>
+                <div style={{display:"flow-root", marginLeft:"20px", marginRight:"20px", paddingBottom:"20px"}}>
+                    {this.data.teams.map( (team) => {
+                        num_ = num_ +1
+                        return (
+                            <div className="card_div" style={num_%2 == 1 ? {paddingRight:"10px"} : {paddingLeft: "10px"}} key={team.id}>
+                                {/* <Link route={`/teams/${team.id}`}> */}
+                                <Link as={`/teams/${team.id}`} href={`/teams?teamId=${team.id}`}>
+                                    <div style={{ width:"100%", position:"relative"}}>
+                                        <div style={{backgroundImage:`url(../static/team_test0${num_}.png)`, width:"100%", paddingBottom: "75%", backgroundSize:"cover"}}></div>
+                                        <div className="tag">
+                                            {team.category}
+                                        </div>
+                                        <div style={{paddingTop:"8px"}}>
+                                            <p className="title">{team.club_name}</p>
+                                            <div className="content">
+                                                <span className="gender">{team.gender}</span>
+                                                <span>{team.location}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        )
+                    })}
+                </div>
+                <StripBanner innerText="풋볼러에 팀을 등록해보세요." innerUrl="https://forms.gle/F2R3Jk4qLM83MnD47"/>
                 <style jsx>
                     {`
-                        p {
-                            margin: 0px;
+                        .search_wrap {
+                            // background-color: #f2f2f2;
+                            border-top: 1px solid #efefef;
+                            border-bottom: 1px solid #efefef;
+                            display: flex;
+                            -webkit-box-pack: justify;
+                            justify-content: space-between;
+                            padding: 0px 20px;
                         }
 
-                        .search_wrap {
-                            margin-top: 20px;
-                            margin-bottom: 20px;
+                        .selected_wrap {
+                            display: flex;
+                            height: 50px;
+                            // border-top: 1px solid #efefef;
+                            // border-bottom: 1px solid #efefef;
+                            line-height: 50px;
+                        }
+
+                        .selected {
+                            font-size: 14px;
+                            font-weight: bold;
+                            line-height: 50px;
+                            margin-right: 15px;
                         }
 
                         .select_wrap {
-                            padding: 0px 20px;
-                            height: 60px;
-                            border-top: 1px solid #e1e4e7;
-                            border-bottom: 1px solid #e1e4e7;
-                            line-height: 58px;
-                            background-color: #f4f7f8;
-                        }
-
-                        .select_cate01 {
-                            position: relative;
-                            width: 20%;
-                            padding-left: 8px;
-                            display: inline-block;
-                            -webkit-box-sizing: border-box;
-                            box-sizing: border-box;
-                            height: 34px;
-                            border: 1px solid #e0e5e8;
-                            -webkit-border-radius: 6px;
-                            border-radius: 6px;
-                            font-size: 14px;
-                            font-weight: 500;
-                            line-height: 32px;
-                            color: #666;
-                            background-color: #fff;
-                        }
-
-                        .btn_search {
-                            margin-left: 17px;
-                            background-color: #444;
-                            padding: 0 11px;
-                            border-radius: 6px;
-                            font-size: 14px;
+                            background-color: #333333;
                             color: #fff;
-                            width: 28%;
-                            border: 0px;
-                            display: inline-block;
-                            line-height: 32px;
-                            box-shadow: 0 2px 8px 0 rgba(37, 50, 67, 0.18), 0 1px 1px 0 rgba(37, 50, 67, 0.03);
+                            font-size: 13px;
+                            padding-bottom: 10px;
                         }
 
-                        .input_wrap {
-                            position: relative;
-                            -webkit-box-sizing: border-box;
-                            box-sizing: border-box;
-                            display: block;
-                            margin-top: 20px;
-                            margin-left: 20px;
-                            margin-right: 20px;
-                            height: 47px;
-                            border: 1px solid #d3d7da;
-                            -webkit-border-radius: 6px;
-                            border-radius: 6px;
-                            -webkit-box-shadow: 0 3px 4px 0 rgba(37, 50, 67, 0.03), 0 1px 1px 0 rgba(37, 50, 67, 0.03);
-                            box-shadow: 0 3px 4px 0 rgba(37, 50, 67, 0.03), 0 1px 1px 0 rgba(37, 50, 67, 0.03);
-                            background-color: #fff;
-                            text-align: left;
+                        .select {
+                            display: flex;
+                            padding-top: 15px;
+                            margin: 0px 20px;
+                            border-bottom: 1px solid #444444;
                         }
 
-                        .input_search {
-                            position: relative;
-                            display: block;
-                            -webkit-box-sizing: border-box;
-                            box-sizing: border-box;
-                            width: 100%;
-                            padding-left: 42px;
-                            height: 45px;
-                            font-weight: 700;
-                            color: #242424;
-                            border: 0;
-                            border-radius: 6px;
+                        .select .sub {
+                            margin-right: 15px;
+                            padding-bottom: 2px;
                         }
 
+                        .select .fick {
+                            padding-bottom: 10px;
+                            border-bottom: 2px solid #fff;
+                        }
+
+
+
+                        
+                        p {
+                            margin: 0px;
+                        }
                         .card_div {
                             width: 50%;
                             float: left;
@@ -169,13 +205,13 @@ class TeamSearch extends Component {
                         }
 
                         .tag {
-                            border-radius: 3px;
+                            // border-radius: 3px;
                             position: absolute;
-                            right: 5%;
-                            top: 4%;
-                            background: rgba(0,0,0,.3);
+                            right: 0%;
+                            top: 0%;
+                            background: rgba(0,0,0,.8);
                             color: #fff;
-                            width: 40px;
+                            width: 38px;
                             height: 20px;
                             font-size: 12px;
                             font-weight: 400;
@@ -190,6 +226,21 @@ class TeamSearch extends Component {
                         }
                         .content {
                             color: #666;
+                            font-size: 12px;
+                        }
+                        .content img {
+                            width: 10px;
+                            margin-right: 3px;
+                            margin-bottom: 2px;
+                        }
+                        .content .gender:after {
+                            display: inline-block;
+                            content: '';
+                            position: relative;
+                            width: 1px;
+                            height: 7px;
+                            margin: 0 5px;
+                            background-color: #d7d7d7;
                         }
                     `}
                 </style>

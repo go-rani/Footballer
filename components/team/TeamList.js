@@ -49,8 +49,7 @@ class TeamList extends Component {
                                     <div style={{paddingTop:"8px"}}>
                                         <p className="title">{team.club_name}</p>
                                         <div className="content">
-                                            <span>{team.gender} | </span>
-                                            {/* <img src="/static/icon/icon_location_gray.png" /> */}
+                                            <span className="gender">{team.gender}</span>
                                             <span>{team.location}</span>
                                         </div>
                                     </div>
@@ -72,13 +71,13 @@ class TeamList extends Component {
                         }
 
                         .tag {
-                            border-radius: 3px;
+                            // border-radius: 3px;
                             position: absolute;
-                            right: 5%;
-                            top: 4%;
-                            background: rgba(0,0,0,.3);
+                            right: 0%;
+                            top: 0%;
+                            background: rgba(0,0,0,.8);
                             color: #fff;
-                            width: 40px;
+                            width: 38px;
                             height: 20px;
                             font-size: 12px;
                             font-weight: 400;
@@ -99,6 +98,15 @@ class TeamList extends Component {
                             width: 10px;
                             margin-right: 3px;
                             margin-bottom: 2px;
+                        }
+                        .content .gender:after {
+                            display: inline-block;
+                            content: '';
+                            position: relative;
+                            width: 1px;
+                            height: 7px;
+                            margin: 0 5px;
+                            background-color: #d7d7d7;
                         }
                     `}
                 </style>

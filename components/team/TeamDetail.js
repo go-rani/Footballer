@@ -7,7 +7,6 @@ import user from '../../common/store/user';
 import { Card, Button, Alert, Badge } from 'react-bootstrap';
 
 import ImageList from '../common/ImageList';
-import BannerList from '../main/BannerList';
 
 class Data {
     @observable club_name = ""
@@ -120,34 +119,24 @@ class TeamDetail extends Component {
     render() {
         
         return (
-            <div style={{minHeight:"600px", padding:"20px 20px"}}>
-                <div style={{paddingBottom:"30px"}}>
-                    <ImageList />
-                    {/* <BannerList /> */}
-                    {/* <div style={{backgroundImage:`url(../../static/team_test01.png)`, width:"100%", paddingBottom: "60%", backgroundSize:"cover"}}></div> */}
-                </div>
-                <div>
+            <div style={{minHeight:"600px"}}>
+                <ImageList />
+                <div className="data_wrap">
                     <h5 style={{fontWeight:"bold"}}>{this.data.club_name}</h5>
                     <div>
                         <small style={{paddingRight:"8px"}}>#풋살</small>
                         <small style={{paddingRight:"8px"}}>#잠실</small>
                         <small>#여자</small>
                     </div>
-                    <div style={{margin:"10px 0px"}}>
-                        <Button  style={{width:"49%", marginRight:"1%"}} variant="outline-info">문의하기</Button>
-                        { this.state.joinBtnShow 
-                            ? <Button style={{width:"49%", marginLeft:"1%"}} variant="secondary" onClick={this._handleClose}>팀 탈퇴하기</Button>
-                            : <Button style={{width:"49%", marginLeft:"1%"}} variant="outline-success" onClick={this._handleShow}>팀 가입하기</Button>
-                        }
-                    </div>
-                </div>
-                <div>
                     <Alert style={{backgroundColor:"#f8f9fa"}}>
                         <p>#{this.data.foundation_day} #{this.data.exercise_date} #{this.data.head_count} #{this.data.location} #{this.data.stadium}</p>
                         <p style={{margin:0}}>{this.data.introduce} 췌췌췌 테스트 테스트 합니다. abcdefg 12355 !@#%$^^</p>
                     </Alert>
+                    <div>
+                        <button>가입 하기</button>
+                    </div>
                 </div>
-                <div style={{marginTop:"20px"}}>
+                <div className="data_wrap">
                     <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>경기일정</h5>
                     <Card>
                         <Card.Header>7/31 (수) PM 8:00 ~ 10:00</Card.Header>
@@ -165,6 +154,25 @@ class TeamDetail extends Component {
                         </Card.Body>
                     </Card>
                 </div>
+                <style jsx>
+                    {`
+                        .data_wrap {
+                            padding: 22px 20px;
+                        }
+
+                        .data_wrap button {
+                            width: 100%;
+                            padding: 12px;
+                            line-height: 24px;
+                            border-color: transparent !important;
+                            text-decoration: none !important;
+                            border-radius: 4px !important;
+                            background: #3897F0;
+                            color: #fff;
+                            box-shadow: 0 2px 8px 0 rgba(37,50,67,0.18), 0 1px 1px 0 rgba(37,50,67,0.03);
+                        }
+                    `}
+                </style>
             </div>
         )
     }

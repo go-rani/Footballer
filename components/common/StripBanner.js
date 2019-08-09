@@ -17,6 +17,9 @@ class StripBanner extends Component {
                 </div>
                 <style jsx>
                     {`
+                        a {color: #333333; text-decoration: none; outline: none}
+                        a:hover, a:active {text-decoration: none; color:#333333; background-color:#fff;}
+                        
                         .text_wrap {
                             // background: url(https://www.lifeplus.co.kr/_resource/_mobile/images/service/service_bg4.jpg) no-repeat center 30%;
                             // background-image: url(null);
