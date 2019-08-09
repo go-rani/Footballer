@@ -4,8 +4,8 @@ import { Button, Alert } from 'react-bootstrap';
 import MyHome from '../user/MyHome';
 import TeamList from '../team/TeamList';
 import BannerList from './BannerList';
-import EventList from './EventList_copy';
-import StripBanner from './StripBanner';
+import EventList from './EventList';
+import StripBanner from '../common/StripBanner';
 
 
 class MyTeamList extends Component {
@@ -50,7 +50,7 @@ class MyTeamList extends Component {
                 }
 
                 <div style={{clear:"both"}}>
-                    <StripBanner />
+                    <StripBanner innerText="풋볼러에 트레이닝을 등록해보세요."/>
                     <EventList />
                 </div>
 

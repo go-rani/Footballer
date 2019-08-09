@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
 class StripBanner extends Component {
-    constructor(props, context) {
-        super(props, context)
-
+    constructor(props) {
+        super(props)
     }
 
     render() {
@@ -11,7 +10,7 @@ class StripBanner extends Component {
             <div>
                 <div className="banner_wrap">
                     <div className="text_wrap">
-                        <p>풋볼러에 트레이닝을 등록해보세요 ></p>
+                        <p>{this.props.innerText}</p>
                     </div>
                 </div>
                 <style jsx>

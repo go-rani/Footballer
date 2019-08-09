@@ -1,5 +1,5 @@
 import Layout from '../components/layout/Layout';
-import TeachSearch from '../components/teach/TeachSearch_copy';
+import TeachSearch from '../components/teach/TeachSearch';
 
 import React, { Component } from 'react';
 import db from '../common/db';

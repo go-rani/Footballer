@@ -1,37 +1,14 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
 import db from '../../common/db';
 import uuid from 'uuid/v4';
-import { Button, Card, Row, Col, InputGroup, FormControl, Modal } from 'react-bootstrap';
 
 
 class EventList extends Component {
     constructor(props, context) {
         super(props, context)
 
-        this._handleClose = this._handleClose.bind(this)
-        this._handleShow = this._handleShow.bind(this)
-
-        this.state = {
-            show : false,
-            emailValue : ""
-        }
     }
 
-    _handleClose() {
-        this.setState({ 
-            show : false,
-            emailValue : "",
-         })
-         this.input.value = ""
-    }
-
-    _handleShow() {
-        this.setState({ 
-            show : true,
-            emailValue : this.input.value
-        })
-    }
 
     _subscribe = () => {
         const now = new Date()
@@ -59,64 +36,88 @@ class EventList extends Component {
     render() {
         return (
             <div>
-                <div style={{padding:"0px 20px"}}>
-                    <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>추천 트레이닝</h5>
-                    <Row>
-                        <Col md={12} style={{marginBottom:"20px"}}>
-                            <Link href="/company">
-                                <Card>
-                                    <Card.Img variant="top" src="../../static/footballer_company.png" />
-                                    <Card.Body>
-                                        <div>
-                                            <p style={{marginBottom:"5px", fontWeight:"bold"}}>FOOTBALLER 풋볼러</p>
-                                            <p style={{fontSize:"10pt", marginBottom:"0px"}}>Connect everything in FOOTBALLER</p>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
-                            </Link>
-                        </Col>
-                    </Row>
+                <div className="subscribe_wrap">
+                    <div className="text_wrap">
+                        <p>축구/풋살을 더 즐기기 위한 이야기,</p>
+                        <p><span>FOOTBALLER</span>를 구독해보세요.</p>
+                    </div>
+                    <div className="email_wrap">
+                        <div className="input_area">
+                            <input type="text" placeholder="이메일 주소 입력"/>
+                        </div>
+                        <a className="email_send">구독</a>
+                    </div>
                 </div>
+                <style jsx>
+                    {`
+                        p {
+                            margin: 0px;
+                            padding: 0px;
+                            font-size: 12px;
+                        }
 
-                <div style={{padding:"0px 20px"}}>
-                    <Card className="text-center mt-2 mb-2">
-                        {/* <Card.Header>SUBSCRIBE TO OUR NEWSLETTER</Card.Header> */}
-                        <Card.Header>풋볼러 소식 구독하기</Card.Header>
-                        <Card.Body>
-                            <div>
-                                <p style={{fontSize:"11pt"}}>풋볼러에서 제공하는 다양한 이벤트와 매칭 소식을 이메일로 받아보세요.</p>
-                            </div>
-                            <div style={{margin: 'auto'}}>
-                                <InputGroup className="mb-3">
-                                    {/* <FormControl
-                                    placeholder="your email"
-                                    aria-label=""
-                                    aria-describedby="basic-addon2"
-                                    ref={ ref => this.input = ref }
-                                    /> */}
-                                    <input className="form-control" ref={ ref => this.input = ref } placeholder="your email" />
-                                    <InputGroup.Append>
-                                        <Button variant="outline-secondary" onClick={this._handleShow}>구독하기</Button>
-                                    </InputGroup.Append>
-                                </InputGroup>
-                                <Modal show={this.state.show} onHide={this._handleClose}>
-                                    <Modal.Header closeButton>
-                                        <Modal.Title>구독하시겠습니까?</Modal.Title>
-                                    </Modal.Header>
-                                    <Modal.Body>이메일 : {this.state.emailValue} </Modal.Body>
-                                    <Modal.Footer>
-                                        <Button variant="secondary" onClick={this._handleClose}>
-                                            닫기
-                                        </Button>
-                                        <Button variant="primary" onClick={this._subscribe}>
-                                            구독하기
-                                        </Button>
-                                    </Modal.Footer>
-                                </Modal>
-                            </div>
-                        </Card.Body>
-                    </Card>
-                </div>
+                        span {
+                            font-size: 13px;
+                            font-weight: bold;
+                            padding-right: 3px;
+                        }
+
+                        .subscribe_wrap {
+                            border: 1px solid #eee;
+                            padding: 30px 20px;
+                            background: #fff;
+                        }
+
+                        .email_wrap {
+                            position: relative;
+                            width: 100%;
+                            height: 40px;
+                            border: none;
+                            border-radius: 0;
+                            margin: 15px auto 0;
+                            background: #f3f3f3;
+                            box-sizing: border-box;
+                            padding-left: 17px;
+                        }
+
+                        .input_area {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        .email_wrap input {
+                            width: 100%;
+                            height: 100%;
+                            background: #f3f3f3;
+                            font-size: 11px;
+                            line-height: 36px;
+                            outline: none;
+                            border-radius: 0;
+                            box-shadow: none;
+                            text-align: left;
+                            border: 0;
+                        }
+
+                        input[type="text"]:focus, input[type="password"]:focus,
+                        textarea:focus, select:focus {
+                            font-size: 16px;
+                        }
+
+                        .email_send {
+                            width: 60px;
+                            height: 100%;
+                            background: #e8e8e8;
+                            border-radius: 0;
+                            font-weight: 600;
+                            font-size: 12px;
+                            line-height: 40px;
+                            position: absolute;
+                            right: 0px;
+                            top: 0;
+                            text-align: center;
+                        }
+                    `}
+                </style>
             </div>
         )
     }

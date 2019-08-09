@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import Link from 'next/link';
 
 import db from '../../common/db';
@@ -9,191 +9,6 @@ class Data {
     @observable teams = [];
 }
 
-const Search = () => {
-    const [cateKey, setCateKey] = useState(0)
-    const [subKey, setSubKey] = useState(100)
-    const [resetKey, setResetKey] = useState("false")
-    const [value, setValue] = useState("none")
-    const [checked, setChecked] = useState("true")
-
-    const [cate01, setCate01] = useState("ALL")
-    const [cate02, setCate02] = useState("지역")
-    const [cate03, setCate03] = useState("요일")
-
-    const displayChage = (e, index) => {
-        if (value == "none") setValue("block")
-        else setValue("none")
-    
-        const data = Array.from(document.querySelectorAll('.btn_cate'))
-        data.map( arr => {
-            arr.classList.remove('checked')    
-        })
-        
-        if (cateKey == index) {
-            if (value == 'none') e.currentTarget.classList.add('checked')
-        } else {
-            e.currentTarget.classList.add('checked')
-            setValue("block")
-        }
-        setCateKey(index)
-        setResetKey("true")
-    }
-
-    const ariaChecked = (e, index) => {
-        const data = Array.from(document.querySelectorAll('.btn_filter'))
-        data.map( arr => {
-            arr.classList.remove('test')    
-        })
-
-        e.currentTarget.classList.add('test')
-        setSubKey(index)
-        setResetKey("true")
-    }
-
-    const filterInit = e => {
-        setValue("none")
-        setResetKey("false")
-        const data_cate = Array.from(document.querySelectorAll('.btn_cate'))
-        data_cate.map((arr, index) => {
-            index != 0 ? arr.classList.remove('checked') :  arr.classList.add('checked')
-        })
-
-        const data_filter = Array.from(document.querySelectorAll('.btn_filter'))
-        data_filter.map((arr, index) => {
-            index != 0 ? arr.classList.remove('test') :  arr.classList.add('test')
-        })
-    }
-
-    const arr = ["ALL", "축구", "풋살"]
-    const arr_ = ["ALL","서울", "경기", "인천", "부산"]
-    const arr__ = ["ALL", "주말", "평일", "월", "화", "수", "목", "금"]
-
-    return (
-        <div className="search_wrap">
-            <div className="select_wrap">
-                <input type="button" className="btn_reset" reset-checked={resetKey} onClick={filterInit} value="re"/>
-                <input type="button" className="btn_cate checked" onClick={e => displayChage(e, 1)} value="ALL" />
-                <input type="button" className="btn_cate" onClick={e => displayChage(e, 2)} value="지역" />
-                <input type="button" className="btn_cate" onClick={e => displayChage(e, 3)} value="요일" />
-            </div>
-            <div className="select_btn" style={{display: value}}>
-                {
-                    cateKey == 1 ? (
-                        arr.map((arr, index) => {
-                            return (
-                                <input type="button" className={`btn_filter ${index == 0 ? 'test' : ''}`} onClick={e => ariaChecked(e, index)} key={index} value={arr} />
-                            )
-                        })
-                        
-                    ) : (
-                        cateKey == 2 ? (
-                            arr_.map((arr, index) => {
-                                return (
-                                    <input type="button" className={`btn_filter ${index == 0 ? 'test' : ''}`} onClick={e => ariaChecked(e, index)} key={index} value={arr} />
-                                )
-                            })
-                            
-                        ) : (
-                            arr__.map((arr, index) => {
-                                return (
-                                    <input type="button" className={`btn_filter ${index == 0 ? 'test' : ''}`} onClick={e => ariaChecked(e, index)} key={index} value={arr} />
-                                )
-                            })
-                        )
-                    )
-                }
-            </div>
-
-            <style jsx>
-                {`
-                    .search_wrap {
-                        margin-top: 20px;
-                        margin-bottom: 5px;
-                    }
-
-                    .select_wrap {
-                        padding: 0px 20px;
-                        height: 60px;
-                        border-top: 1px solid #efefef;
-                        border-bottom: 1px solid #efefef;
-                        line-height: 58px;
-                        background-color: #fff;
-                    }
-
-                    .select_btn {
-                        padding: 10px 20px 0px 20px;
-                        background-color: #f4f7f8;
-                        border-bottom: 1px solid #efefef;
-                    }
-
-                    .btn_reset {
-                        background: transparent url('/static/icon/icon_reset_off.png');
-                        background-position:center;
-                        background-repeat:no-repeat;
-                        background-size: 16px;
-                        color: transparent;
-                        border: solid 1px #adb5bd;
-                        border-radius: 2px;
-                        margin-right: 10px;
-                        padding: 0 11px;
-                        border-radius: 6px;
-                        font-size: 14px;
-                        display: inline-block;
-                        line-height: 32px;
-                    }
-
-                    .btn_reset[reset-checked="true"] {
-                        border: solid 1px #3897F0;
-                        background: transparent url('/static/icon/icon_reset.png');
-                        background-position:center;
-                        background-repeat:no-repeat;
-                        background-size: 16px;
-                    }
-
-                    .btn_cate {
-                        background-color: #fff;
-                        border: solid 1px #adb5bd;
-                        border-radius: 2px;
-                        color: #6c757d;
-                        margin-right: 10px;
-                        padding: 0 11px;
-                        border-radius: 6px;
-                        font-size: 14px;
-                        display: inline-block;
-                        line-height: 32px;
-                    }
-
-                    .checked {
-                        color: #3897F0;
-                        border: solid 1px #3897F0;
-                        background-color: #fff;
-                    }
-                    
-                    .btn_filter {
-                        margin-bottom: 10px;
-                        margin-right: 10px;
-                        background-color: #fff;
-                        padding: 0 11px;
-                        border-radius: 6px;
-                        font-size: 14px;
-                        color: #444;
-                        border: 0px;
-                        display: inline-block;
-                        line-height: 28px;
-                        box-shadow: 0 2px 8px 0 rgba(37, 50, 67, 0.18), 0 1px 1px 0 rgba(37, 50, 67, 0.03);
-                    }
-
-                    .test {
-                        color: #fff;
-                        background-color: #3897F0;
-                    }
-
-                `}
-            </style>
-        </div>
-    )
-}
-
 @observer
 class TeachSearch extends Component {
     data = new Data()
@@ -201,6 +16,9 @@ class TeachSearch extends Component {
     constructor(props) {
         super(props)
         this.data.teams = props.teamsData
+        this.state = {
+            select_show: "none",
+        }
 
         db.collection('teams').onSnapshot(res => {
             const newTeams = []
@@ -213,18 +31,71 @@ class TeachSearch extends Component {
         })
     }
 
+
+    _selectDisplay = () => {
+        if (this.state.select_show == "none") this.setState({select_show: "block"})
+        else this.setState({select_show: "none"})
+    }
+
+    _selectedSub = (e, key) => {
+        const text = e.currentTarget.innerText
+        const data_cate = Array.from(document.querySelectorAll(key))
+        data_cate.map((arr, index) => {
+            arr.classList.remove('fick')
+        })
+        e.currentTarget.classList.add('fick')
+        switch(key) {
+            case '.cate01':
+                return this.refs.cate01.innerText = text
+            case '.cate02':
+                return this.refs.cate02.innerText = text
+            case '.cate03':
+                return this.refs.cate03.innerText = text
+            default:
+                return null;
+        }
+    }
+
     render() {
         let num = 0
         return (
             <div>
-                <Search />
+                <div className="search_wrap">
+                    <div className="selected_wrap">
+                        <div ref="cate01" className="selected">All</div>
+                        <div ref="cate02" className="selected">Wherever</div>
+                        <div ref="cate03" className="selected">Whenever</div>
+                    </div>
+                    <div className="selected" style={{margin:"0px"}} onClick={this._selectDisplay}>^</div>
+                </div>
+                <div className="select_wrap" style={{display:`${ this.state.select_show }`}}>
+                    <div className="select">
+                        <div className="cate01 sub fick" onClick={e => this._selectedSub(e, ".cate01")}>ALL</div>
+                        <div className="cate01 sub" onClick={e => this._selectedSub(e, ".cate01")}>축구</div>
+                        <div className="cate01 sub" onClick={e => this._selectedSub(e, ".cate01")}>풋살</div>
+                    </div>
+                    <div className="select">
+                        <div className="cate02 sub fick" onClick={e => this._selectedSub(e, ".cate02")}>Wherever</div>
+                        <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>서울</div>
+                        <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>인천</div>
+                        <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>경기</div>
+                        <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>부산</div>
+                    </div>
+                    <div className="select">
+                        <div className="cate03 sub fick" onClick={e => this._selectedSub(e, ".cate03")}>Whenever</div>
+                        <div className="cate03 sub" onClick={e => this._selectedSub(e, ".cate03")}>평일</div>
+                        <div className="cate03 sub" onClick={e => this._selectedSub(e, ".cate03")}>주말</div>
+                        <div className="cate03 sub" onClick={e => this._selectedSub(e, ".cate03")}>토</div>
+                        <div className="cate03 sub" onClick={e => this._selectedSub(e, ".cate03")}>일</div>
+                    </div>
+                </div>
                 <div style={{padding:"15px 20px", clear:"both"}}>
                     <div style={{display:"flow-root"}}>
                         {this.data.teams.map( (team) => {
                             num = num +1
                             return (
                                 <div className="product_item" key={team.id}>
-                                    <Link as={`/teams/${team.id}`} href={`/teams?teamId=${team.id}`}>
+                                    <Link as={`/teach/${team.id}`} href={`/teach?teamId=${team.id}`}>
                                         <div style={{display:"flex"}}>
                                             <div className="thumb_wrap">
                                                 <div style={{backgroundImage:`url(../static/team_test0${num}.png)`}} className="thumb_img"></div>
@@ -244,82 +115,64 @@ class TeachSearch extends Component {
                 </div>
                 <style jsx>
                     {`
+                        .search_wrap {
+                            // background-color: #f2f2f2;
+                            border-top: 1px solid #efefef;
+                            border-bottom: 1px solid #efefef;
+                            display: flex;
+                            -webkit-box-pack: justify;
+                            justify-content: space-between;
+                            padding: 0px 20px;
+                        }
+
+                        .selected_wrap {
+                            display: flex;
+                            height: 50px;
+                            // border-top: 1px solid #efefef;
+                            // border-bottom: 1px solid #efefef;
+                            line-height: 50px;
+                        }
+
+                        .selected {
+                            font-size: 14px;
+                            font-weight: bold;
+                            line-height: 50px;
+                            margin-right: 15px;
+                        }
+
+                        .select_wrap {
+                            background-color: #333333;
+                            color: #fff;
+                            font-size: 13px;
+                            padding-bottom: 10px;
+                        }
+
+                        .select {
+                            display: flex;
+                            padding-top: 15px;
+                            margin: 0px 20px;
+                            border-bottom: 1px solid #444444;
+                        }
+
+                        .select .sub {
+                            margin-right: 15px;
+                            padding-bottom: 2px;
+                        }
+
+                        .select .fick {
+                            padding-bottom: 10px;
+                            border-bottom: 2px solid #fff;
+                        }
+
+
+
+                        
                         p {
                             margin: 0px;
                         }
 
-                        .search_wrap {
-                            margin-top: 20px;
-                            margin-bottom: 5px;
-                        }
-
-                        .select_wrap {
-                            padding: 0px 20px;
-                            height: 60px;
-                            border-top: 1px solid #efefef;
-                            border-bottom: 1px solid #efefef;
-                            line-height: 58px;
-                            background-color: #f4f7f8;
-                        }
-
-                        .select_btn {
-                            padding: 0px 20px;
-                            background-color: #f2f2f2;
-                        }
-
-                        .btn_search {
-                            margin-right: 10px;
-                            background-color: #fff;
-                            padding: 0 11px;
-                            border-radius: 6px;
-                            font-size: 14px;
-                            color: #444;
-                            border: 0px;
-                            display: inline-block;
-                            line-height: 32px;
-                            box-shadow: 0 2px 8px 0 rgba(37, 50, 67, 0.18), 0 1px 1px 0 rgba(37, 50, 67, 0.03);
-                        }
-                       
-                        .btn_search[aria-checked="true"] {
-                            color: #fff;
-                            background-color: #444;
-                        }
-                        
-
-                        .input_wrap {
-                            position: relative;
-                            -webkit-box-sizing: border-box;
-                            box-sizing: border-box;
-                            display: block;
-                            margin-top: 20px;
-                            margin-left: 20px;
-                            margin-right: 20px;
-                            height: 47px;
-                            border: 1px solid #d3d7da;
-                            -webkit-border-radius: 6px;
-                            border-radius: 6px;
-                            -webkit-box-shadow: 0 3px 4px 0 rgba(37, 50, 67, 0.03), 0 1px 1px 0 rgba(37, 50, 67, 0.03);
-                            box-shadow: 0 3px 4px 0 rgba(37, 50, 67, 0.03), 0 1px 1px 0 rgba(37, 50, 67, 0.03);
-                            background-color: #fff;
-                            text-align: left;
-                        }
-
-                        .input_search {
-                            position: relative;
-                            display: block;
-                            -webkit-box-sizing: border-box;
-                            box-sizing: border-box;
-                            width: 100%;
-                            padding-left: 42px;
-                            height: 45px;
-                            font-weight: 700;
-                            color: #242424;
-                            border: 0;
-                            border-radius: 6px;
-                        }
-
                         .product_item {
-                            border-top: 1px solid #eff3f6;
+                            // border-top: 1px solid #eff3f6;
                             padding-top: 15px;
                             padding-bottom: 15px;
                         }
@@ -346,9 +199,8 @@ class TeachSearch extends Component {
                         .thumb_img {
                             background-size: cover;
                             position: relative;
-                            width: 100px;
-                            height: 100px;
-                            border-radius: 3px;
+                            width: 97px;
+                            height: 97px;
                         }
 
                         .info_wrap {
