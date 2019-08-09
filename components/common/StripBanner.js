@@ -9,9 +9,11 @@ class StripBanner extends Component {
         return (
             <div>
                 <div className="banner_wrap">
-                    <div className="text_wrap">
-                        <p>{this.props.innerText}</p>
-                    </div>
+                    <a href={this.props.innerUrl} target="_blank">
+                        <div className="text_wrap">
+                            <p>{this.props.innerText}</p>
+                        </div>
+                    </a>
                 </div>
                 <style jsx>
                     {`

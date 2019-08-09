@@ -117,7 +117,7 @@ class CompanyMain extends Component {
                         </div>
                     </div>
                 </div>
-                <StripBanner innerText="함께 진행하시고 싶은 제안이 있으신가요?"/>
+                <StripBanner innerText="함께 진행하시고 싶은 제안이 있으신가요?" innerUrl="https://forms.gle/HzVDwpXT8LNQQUXs9"/>
                 <EventList />
                 <style jsx>
                     {`
