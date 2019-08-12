@@ -53,6 +53,8 @@ class TeachSearch extends Component {
                 return this.refs.cate02.innerText = text
             case '.cate03':
                 return this.refs.cate03.innerText = text
+            case '.cate04':
+                return this.refs.cate04.innerText = text
             default:
                 return null;
         }
@@ -63,33 +65,39 @@ class TeachSearch extends Component {
         let num_ = 0
         return (
             <div>
-                <div className="search_wrap">
+                <div className="search_wrap" onClick={this._selectDisplay}>
                     <div className="selected_wrap">
                         <div ref="cate01" className="selected">All</div>
-                        <div ref="cate02" className="selected">Wherever</div>
-                        <div ref="cate03" className="selected">Whenever</div>
+                        <div ref="cate02" className="selected">서울</div>
+                        <div ref="cate03" className="selected">평일</div>
+                        <div ref="cate04" className="selected">모집</div>
                     </div>
-                    <div className="selected" style={{margin:"0px"}} onClick={this._selectDisplay}>^</div>
+                    <div className={`selected_btn ${this.state.select_show == "none" ? 'btn_close' : 'btn_open'}`}></div>
                 </div>
                 <div className="select_wrap" style={{display:`${ this.state.select_show }`}}>
                     <div className="select">
-                        <div className="cate01 sub fick" onClick={e => this._selectedSub(e, ".cate01")}>ALL</div>
+                        <div className="cate01 sub fick" onClick={e => this._selectedSub(e, ".cate01")}>All</div>
                         <div className="cate01 sub" onClick={e => this._selectedSub(e, ".cate01")}>축구</div>
                         <div className="cate01 sub" onClick={e => this._selectedSub(e, ".cate01")}>풋살</div>
                     </div>
                     <div className="select">
-                        <div className="cate02 sub fick" onClick={e => this._selectedSub(e, ".cate02")}>Wherever</div>
-                        <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>서울</div>
+                        <div className="cate02 sub fick" onClick={e => this._selectedSub(e, ".cate02")}>서울</div>
                         <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>인천</div>
                         <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>경기</div>
                         <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>부산</div>
+                        <div className="cate02 sub" onClick={e => this._selectedSub(e, ".cate02")}>강원</div>
                     </div>
                     <div className="select">
-                        <div className="cate03 sub fick" onClick={e => this._selectedSub(e, ".cate03")}>Whenever</div>
-                        <div className="cate03 sub" onClick={e => this._selectedSub(e, ".cate03")}>평일</div>
+                        <div className="cate03 sub fick" onClick={e => this._selectedSub(e, ".cate03")}>평일</div>
                         <div className="cate03 sub" onClick={e => this._selectedSub(e, ".cate03")}>주말</div>
                         <div className="cate03 sub" onClick={e => this._selectedSub(e, ".cate03")}>토</div>
                         <div className="cate03 sub" onClick={e => this._selectedSub(e, ".cate03")}>일</div>
+                        <div className="cate03 sub" onClick={e => this._selectedSub(e, ".cate03")}>전체</div>
+                    </div>
+                    <div className="select">
+                        <div className="cate04 sub fick" onClick={e => this._selectedSub(e, ".cate04")}>모집</div>
+                        <div className="cate04 sub" onClick={e => this._selectedSub(e, ".cate04")}>마감</div>
+                        <div className="cate04 sub" onClick={e => this._selectedSub(e, ".cate04")}>전체</div>
                     </div>
                 </div>
                 <div style={{padding:"15px 20px", clear:"both"}}>
@@ -107,11 +115,12 @@ class TeachSearch extends Component {
                                             <div className="info_wrap">
                                                 <div className="title_wrap">
                                                     <p className="title">{team.club_name}</p>
-                                                    <button className="btn_status">모집 중</button>
+                                                    <button className="btn_state">모집</button>
                                                 </div>
                                                 <p className="content"><small>서울시 > 상암동 > 월드컵 경기 1구장</small></p>
                                                 <p className="content"><small>매주 금요일 21:00 ~ 23:00</small></p>
-                                                <p className="content"><small>18만원 | 그룹인원 30명</small></p>
+                                                <span className="content flag"><small>18만원</small></span>
+                                                <span className="content"><small>그룹인원 30명</small></span>
                                             </div>
                                         </div>
                                     </Link>
@@ -134,11 +143,12 @@ class TeachSearch extends Component {
                                             <div className="info_wrap">
                                                 <div className="title_wrap">
                                                     <p className="title">{team.club_name}</p>
-                                                    <button className="btn_status">모집 중</button>
+                                                    <button className="btn_state gray">마감</button>
                                                 </div>
                                                 <p className="content"><small>서울시 > 상암동 > 월드컵 경기 1구장</small></p>
                                                 <p className="content"><small>매주 금요일 21:00 ~ 23:00</small></p>
-                                                <p className="content"><small>18만원 | 그룹인원 30명</small></p>
+                                                <span className="content flag"><small>18만원</small></span>
+                                                <span className="content"><small>그룹인원 30명</small></span>
                                             </div>
                                         </div>
                                     </Link>
@@ -157,6 +167,23 @@ class TeachSearch extends Component {
                             -webkit-box-pack: justify;
                             justify-content: space-between;
                             padding: 0px 20px;
+                        }
+
+                        .selected_btn {
+                            width: 22px;
+                            height: 50px;
+                        }
+                        .search_wrap .btn_close {
+                            background: transparent url('/static/icon/icon_display_close.png');
+                            background-position:center;
+                            background-repeat:no-repeat;
+                            background-size: 16px;
+                        }
+                        .search_wrap .btn_open {
+                            background: transparent url('/static/icon/icon_display_open.png');
+                            background-position:center;
+                            background-repeat:no-repeat;
+                            background-size: 16px;
                         }
 
                         .selected_wrap {
@@ -252,10 +279,20 @@ class TeachSearch extends Component {
                         }
                         .content {
                             color: #666;
+                            font-size: 16px;
                         }
-                        .btn_status {
-                            margin-top: 4px;
-                            margin-bottom: 4px;
+                        .flag:after {
+                            display: inline-block;
+                            content: '';
+                            position: relative;
+                            width: 1px;
+                            height: 9px;
+                            margin: 0 6px;
+                            background-color: #BDBDBD;
+                        }
+                        .btn_state {
+                            margin-bottom: 5px;
+                            margin-top: 3px;
                             border: 1px solid #ed4956;
                             background: #fff;
                             padding: 0px 2px;
@@ -264,6 +301,10 @@ class TeachSearch extends Component {
                             display: inline-block;
                             margin-left: 5px;
                             // box-shadow: 0 2px 8px 0 rgba(37, 50, 67, 0.18), 0 1px 1px 0 rgba(37, 50, 67, 0.03);
+                        }
+                        .gray {
+                            border: 1px solid #666;
+                            color: #666;
                         }
                     `}
                 </style>

@@ -6,6 +6,7 @@ import TeamList from '../team/TeamList';
 import BannerList from './BannerList';
 import EventList from './EventList';
 import StripBanner from '../common/StripBanner';
+import TeachMainList from '../teach/TeachMainList';
 
 
 class MyTeamList extends Component {
@@ -22,20 +23,19 @@ class MyTeamList extends Component {
         
         return (
             <div>
-                <div style={{padding:"15px 0px", marginBottom: "10px"}}>
-                    {/* <h5>Banner List</h5> */}
+                <div style={{padding:"10px 0px"}}>
                     <BannerList />
                 </div>
 
-                {/* <div style={{padding:"20px 20px"}}>
-                    트레이닝
-                </div> */}
+                <div>
+                    <TeachMainList teams={this.props.teamsData}/>
+                </div>
 
                 {/* <div style={{padding:"20px 20px"}}>
                     <MyHome isLogin={this.state.login}/>
                 </div> */}
                 
-                <div style={{padding:"20px 20px"}}>
+                <div style={{padding:"40px 20px 0px"}}>
                     <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>팀 찾기</h5>
                     <TeamList isLogin={this.state.login} teams={this.props.teamsData}/>
                 </div>

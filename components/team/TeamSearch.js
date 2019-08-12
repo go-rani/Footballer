@@ -63,13 +63,13 @@ class TeamSearch extends Component {
         let num_ = 0
         return (
             <div>
-                <div className="search_wrap">
+                <div className="search_wrap"  onClick={this._selectDisplay}>
                     <div className="selected_wrap">
                         <div ref="cate01" className="selected">혼성</div>
                         <div ref="cate03" className="selected">ALL</div>
                         <div ref="cate02" className="selected">Wherever</div>
                     </div>
-                    <div className="selected" style={{margin:"0px"}} onClick={this._selectDisplay}>^</div>
+                    <div className={`selected_btn ${this.state.select_show == "none" ? 'btn_close' : 'btn_open'}`}></div>
                 </div>
                 <div className="select_wrap" style={{display:`${ this.state.select_show }`}}>
                     <div className="select">
@@ -151,6 +151,23 @@ class TeamSearch extends Component {
                             -webkit-box-pack: justify;
                             justify-content: space-between;
                             padding: 0px 20px;
+                        }
+
+                        .selected_btn {
+                            width: 22px;
+                            height: 50px;
+                        }
+                        .search_wrap .btn_close {
+                            background: transparent url('/static/icon/icon_display_close.png');
+                            background-position:center;
+                            background-repeat:no-repeat;
+                            background-size: 16px;
+                        }
+                        .search_wrap .btn_open {
+                            background: transparent url('/static/icon/icon_display_open.png');
+                            background-position:center;
+                            background-repeat:no-repeat;
+                            background-size: 16px;
                         }
 
                         .selected_wrap {
