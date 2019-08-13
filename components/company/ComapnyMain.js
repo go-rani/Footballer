@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
-import EventList from '../main/EventList';
-import Slider from "react-slick";
+import ReactGA from 'react-ga';
 
+import Slider from "react-slick";
+import EventList from '../main/EventList';
 import StripBanner from '../common/StripBanner';
 
 
 class CompanyMain extends Component {
     constructor(props, context) {
         super(props, context)
+    }
 
+    componentDidMount() {
+        ReactGA.initialize('UA-1234567-1')
+        ReactGA.pageview(document.location.pathname)
     }
 
     render() {
