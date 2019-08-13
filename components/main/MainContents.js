@@ -23,10 +23,6 @@ class MyTeamList extends Component {
         
         return (
             <div>
-                <div style={{padding:"10px 0px"}}>
-                    <BannerList />
-                </div>
-
                 <div>
                     <TeachMainList teams={this.props.teamsData}/>
                 </div>
@@ -34,8 +30,11 @@ class MyTeamList extends Component {
                 {/* <div style={{padding:"20px 20px"}}>
                     <MyHome isLogin={this.state.login}/>
                 </div> */}
+                <div style={{padding:"10px 0px"}}>
+                    <BannerList />
+                </div>
                 
-                <div style={{padding:"40px 20px 0px"}}>
+                <div style={{padding:"20px 20px 0px"}}>
                     <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold"}}>팀 찾기</h5>
                     <TeamList isLogin={this.state.login} teams={this.props.teamsData}/>
                 </div>

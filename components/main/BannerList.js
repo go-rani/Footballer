@@ -11,10 +11,14 @@ class BannerList extends Component {
 
     render() {
         var settings = {
+            // className: "center",
+            // centerMode: true,
+            // centerPadding: "160px",
+            // slidesToShow: 1,
             dots: false,
             arrows: false,
             infinite: true,
-            speed: 300,
+            speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true,
@@ -41,12 +45,13 @@ class BannerList extends Component {
                           }
                           
                           h4 {
-                            font-size: 17px;
+                            font-size: 15px;
                             font-weight: bold;
                             line-height: 60px;
                             position: relative;
                             text-align: center;
                             margin: 0px;
+                            background: #f2f2f2;
                           }
                           
                           }

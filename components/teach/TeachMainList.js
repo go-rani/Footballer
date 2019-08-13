@@ -34,7 +34,51 @@ class TeachSearch extends Component {
         let num = 0
         return (
             <div>
-                {/* <div style={{padding:"0px 20px", clear:"both"}}>
+                <div className="teach_wrap">
+                    <div className="title_wrap">
+                        <span>풋볼러가 추천하는 트레이닝</span>
+                    </div>
+                    <div className="scroll_wrap">
+                        <div className="card_wrap">
+                            <div className="img_box">
+                                {/* <img src="/static/team_test01.png" alt="main" /> */}
+                            </div>
+                            <div className="text_box">
+                                <p>풋볼러가 추천하는 1</p>
+                                <small>메인에 컨텐츠 넣을거야 트레이닝 괜츈한가 테스트</small>
+                            </div>
+                        </div>
+                        <div className="card_wrap">
+                            <div className="img_box">
+                                {/* <img src="/static/team_test01.png" alt="main" /> */}
+                            </div>
+                            <div className="text_box">
+                                <p>풋볼러가 추천하는 2</p>
+                                <small>메인에 컨텐츠 넣을거야 트레이닝 괜츈한가 테스트</small>
+                            </div>
+                        </div>
+                        <div className="card_wrap">
+                            <div className="img_box">
+                                {/* <img src="/static/team_test01.png" alt="main" /> */}
+                            </div>
+                            <div className="text_box">
+                                <p>풋볼러가 추천하는 3</p>
+                                <small>메인에 컨텐츠 넣을거야 트레이닝 괜츈한가 테스트</small>
+                            </div>
+                        </div>
+                        <div className="card_wrap" style={{paddingRight:"20px"}}>
+                            <div className="img_box">
+                                {/* <img src="/static/team_test01.png" alt="main" /> */}
+                            </div>
+                            <div className="text_box">
+                                <p>풋볼러가 추천하는 4</p>
+                                <small>메인에 컨텐츠 넣을거야 트레이닝 괜츈한가 테스트</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style={{padding:"30px 20px 0px", clear:"both"}}>
+                    <h5 style={{color:"#444444", fontSize:"10pt", fontWeight:"bold", marginBottom:"0px"}}>트레이닝 찾기</h5>
                     <div style={{display:"flow-root"}}>
                         {this.data.teams.map( (team) => {
                             num = num +1
@@ -63,39 +107,14 @@ class TeachSearch extends Component {
                             )
                         })}
                     </div>
-                </div>   */}
-                <div className="teach_wrap">
-                    <div className="title_wrap">
-                        <span>풋볼러가 추천하는 트레이닝</span>
-                    </div>
-                    <div className="scroll_wrap">
-                        <div className="card_wrap">
-                            <div className="img_box">
-                                {/* <img src="/static/team_test01.png" alt="main" /> */}
-                            </div>
-                            <div className="text_box">
-                                <p>풋볼러가 추천하는 고알레</p>
-                                <small>메인에 컨텐츠 넣을거야 트레이닝 괜츈한가 테스트</small>
-                            </div>
-                        </div>
-                        <div className="card_wrap">
-                            <div className="img_box">
-                                {/* <img src="/static/team_test01.png" alt="main" /> */}
-                            </div>
-                            <div className="text_box">
-                                <p>풋볼러가 추천하는 고알레</p>
-                                <small>메인에 컨텐츠 넣을거야 트레이닝 괜츈한가 테스트</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>  
                 <style jsx>
                     {`
                         .teach_wrap {
                             padding: 30px 0px 30px;
                             overflow: hidden;
-                            background: #222;
-                            // background: f2f2f2;
+                            // background: #222;
+                            background: #f2f2f2;
                             position: relative;
                             z-index: 1;
                         }
@@ -117,28 +136,26 @@ class TeachSearch extends Component {
                         .teach_wrap .title_wrap span {
                             display: inline-block;
                             padding: 0 20px;
-                            background: #222;
+                            background: #f2f2f2;
                             position: relative;
                             z-index: 2;
                             text-align: center;
                             margin: auto;
-                            color: #ddd;
+                            color: #333;
+                            font-weight: bold;
                         }
 
                         
                         .scroll_wrap {
-                            transform: translate3d(0px, 0px, 0px);
-                            width: 2000px;
+                            // transform: translate3d(0px, 0px, 0px);
+                            // width: 2000px;
                             cursor: move;
-                            touch-action: pan-y;
-                            user-select: none;
-                            overflow-x: hidden !important;
+                            overflow-x: scroll;
+                            overflow-y: hidden;
                             white-space: nowrap;
-                            overflow: hidden !important;
-                            padding-top: 15px;
                         }
                         .card_wrap {
-                            padding: 20px 0px 0px 20px;
+                            padding: 20px 0px 10px 20px;
                             display: inline-block !important;
                             white-space: normal !important;
                             vertical-align: top !important;
@@ -158,6 +175,7 @@ class TeachSearch extends Component {
                             -webkit-box-sizing: border-box;
                             -moz-box-sizing: border-box;
                             box-sizing: border-box;
+                            box-shadow: 0 2px 8px 0 rgba(37, 50, 67, 0.18), 0 1px 1px 0 rgba(37, 50, 67, 0.03);
                         }
                         .text_box p {
                             font-size: 16px;
@@ -177,7 +195,7 @@ class TeachSearch extends Component {
 
                         .product_item {
                             // border-top: 1px solid #eff3f6;
-                            margin-top: 15px;
+                            margin-top: 10px;
                             margin-bottom: 20px;
                             background: #fff;
                         }
