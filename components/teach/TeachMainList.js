@@ -147,12 +147,14 @@ class TeachSearch extends Component {
 
                         
                         .scroll_wrap {
-                            // transform: translate3d(0px, 0px, 0px);
+                            transform: translate3d(0px, 0px, 0px);
                             // width: 2000px;
                             cursor: move;
                             overflow-x: scroll;
                             overflow-y: hidden;
                             white-space: nowrap;
+                            -webkit-overflow-scrolling: touch;
+                            scroll-behavior: smooth;
                         }
                         .card_wrap {
                             padding: 20px 0px 10px 20px;

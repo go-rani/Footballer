@@ -140,7 +140,7 @@ class TeamSearch extends Component {
                         )
                     })}
                 </div>
-                <StripBanner innerText="풋볼러에 팀을 등록해보세요." innerUrl="https://forms.gle/F2R3Jk4qLM83MnD47"/>
+                {/* <StripBanner innerText="풋볼러에 팀을 등록해보세요." innerUrl="https://forms.gle/F2R3Jk4qLM83MnD47"/> */}
                 <style jsx>
                     {`
                         .search_wrap {
