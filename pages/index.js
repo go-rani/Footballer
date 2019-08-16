@@ -8,7 +8,7 @@ class Index extends Component {
 
     static async getInitialProps() {
 
-        const result = await db.collection('teams').get()
+        const result = await db.collection('teams').orderBy('date').limit(4).get()
         const newTeams = []
         result.forEach(doc => {
             const docData = doc.data()
