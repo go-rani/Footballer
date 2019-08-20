@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Router from 'next/router';
 // import Link from 'next/link';
-import { Link } from '../../routes';
+import Link from 'next/link';
 import db from '../../common/db';
 import user from '../../common/store/user';
 

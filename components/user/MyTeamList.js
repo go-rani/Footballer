@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import Link from 'next/link';
-import { Link } from '../../routes';
+import Link from 'next/link';
 
 class MyTeamList extends Component {
     // data = new Data()

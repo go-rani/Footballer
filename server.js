@@ -9,33 +9,23 @@
 
 
 //next routes
-const next = require('next');
-const routes = require('./routes');
-const express = require('express');
+const express = require('express')
+const next = require('next')
 
-const port = parseInt(process.env.PORT, 10) || 3000
+const port = process.env.PORT || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
-// const port = 80;
-// const app = next({ dev: false });
-// const port = 3000;
-// const app = next({dev: process.env.NODE_ENV !== 'production'})
-const handle = routes.getRequestHandler(app);
+const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
-    const server = express();
-    // server.use(handle);
+    const server = express()
 
-    server.get('/teams/:teamId', (req, res) => {
-        const actualPage = '/teams'
-        const queryParams = { title: req.params.id }
-        app.render(req, res, actualPage, queryParams)
+    server.get('/teach/:id', (req, res) => {
+        return app.render(req, res, '/teach', { id: req.params.id })
     })
 
-    server.get('/teach/:teamId', (req, res) => {
-        const actualPage = '/teach'
-        const queryParams = { title: req.params.id }
-        app.render(req, res, actualPage, queryParams)
+    server.get('/teams/:id', (req, res) => {
+        return app.render(req, res, '/teams', { id: req.params.id })
     })
 
     server.get('*', (req, res) => {
@@ -43,7 +33,7 @@ app.prepare().then(() => {
     })
 
     server.listen(port, err => {
-        if (err) throw err;
-        console.log(`> Ready on http://localhost:${port}`);
-    });
-});
+        if (err) throw err
+        console.log(`> Ready on http://localhost:${port}`)
+    })
+})

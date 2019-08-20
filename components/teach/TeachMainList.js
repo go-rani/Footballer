@@ -5,8 +5,6 @@ import db from '../../common/db';
 import { observable } from 'mobx';
 import { observer } from "mobx-react";
 
-import StripBanner from '../common/StripBanner';
-
 class Data {
     @observable teams = [];
 }
@@ -85,7 +83,7 @@ class TeachSearch extends Component {
                             if (num > 2) return;
                             return (
                                 <div className="product_item" key={team.id}>
-                                    <Link as={`/teach/${team.id}`} href={`/teach?teamId=${team.id}`}>
+                                    <Link href={{ pathname: '/teach', query: { id: `${team.id}` } }} as={`/teach/${team.id}`}>
                                         <div style={{display:"flex"}}>
                                             <div className="thumb_wrap">
                                                 <div style={{backgroundImage:`url(../static/team_test0${num}.png)`}} className="thumb_img"></div>
