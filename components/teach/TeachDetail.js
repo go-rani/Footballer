@@ -28,7 +28,7 @@ class TeachDetail extends Component {
             clubName : "",
         }
         
-        if (this.props.teamID) {
+        if (props.teamID) {
             //팀 정보 가져오기
             db.collection('teams').doc(this.props.teamID)
                 .get()

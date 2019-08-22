@@ -37,15 +37,17 @@ class TeachSearch extends Component {
                         <span>풋볼러가 추천하는 트레이닝</span>
                     </div>
                     <div className="scroll_wrap">
-                        <div className="card_wrap">
-                            <div className="img_box">
-                                {/* <img src="/static/team_test01.png" alt="main" /> */}
+                        <Link href={{ pathname: '/teach', query: { id: "56b65efc-f0aa-4d47-94f0-3e957d418753" } }} as={"/teach/56b65efc-f0aa-4d47-94f0-3e957d418753"}>
+                            <div className="card_wrap">
+                                <div className="img_box">
+                                    {/* <img src="/static/team_test01.png" alt="main" /> */}
+                                </div>
+                                <div className="text_box">
+                                    <p>풋볼러가 추천하는 1</p>
+                                    <small>메인에 컨텐츠 넣을거야 트레이닝 괜츈한가 테스트</small>
+                                </div>
                             </div>
-                            <div className="text_box">
-                                <p>풋볼러가 추천하는 1</p>
-                                <small>메인에 컨텐츠 넣을거야 트레이닝 괜츈한가 테스트</small>
-                            </div>
-                        </div>
+                        </Link>
                         <div className="card_wrap">
                             <div className="img_box">
                                 {/* <img src="/static/team_test01.png" alt="main" /> */}

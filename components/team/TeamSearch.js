@@ -95,8 +95,7 @@ class TeamSearch extends Component {
                         num = num +1
                         return (
                             <div className="card_div" style={num%2 == 1 ? {paddingRight:"10px"} : {paddingLeft: "10px"}} key={team.id}>
-                                {/* <Link route={`/teams/${team.id}`}> */}
-                                <Link as={`/teams/${team.id}`} href={`/teams?teamId=${team.id}`}>
+                                <Link href={{ pathname: '/teams', query: { id: `${team.id}` } }} as={`/teams/${team.id}`}>
                                     <div style={{ width:"100%", position:"relative"}}>
                                         <div style={{backgroundImage:`url(../static/team_test0${num}.png)`, width:"100%", paddingBottom: "75%", backgroundSize:"cover"}}></div>
                                         <div className="tag">
@@ -120,8 +119,7 @@ class TeamSearch extends Component {
                         num_ = num_ +1
                         return (
                             <div className="card_div" style={num_%2 == 1 ? {paddingRight:"10px"} : {paddingLeft: "10px"}} key={team.id}>
-                                {/* <Link route={`/teams/${team.id}`}> */}
-                                <Link as={`/teams/${team.id}`} href={`/teams?teamId=${team.id}`}>
+                                <Link href={{ pathname: '/teams', query: { id: `${team.id}` } }} as={`/teams/${team.id}`}>
                                     <div style={{ width:"100%", position:"relative"}}>
                                         <div style={{backgroundImage:`url(../static/team_test0${num_}.png)`, width:"100%", paddingBottom: "75%", backgroundSize:"cover"}}></div>
                                         <div className="tag">

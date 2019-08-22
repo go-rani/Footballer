@@ -106,7 +106,7 @@ class TeachSearch extends Component {
                             num = num +1
                             return (
                                 <div className="product_item" key={team.id}>
-                                    <Link as={`/teach/${team.id}`} href={`/teach?teamId=${team.id}`}>
+                                    <Link href={{ pathname: '/teach', query: { id: `${team.id}` } }} as={`/teach/${team.id}`}>
                                         <div style={{display:"flex"}}>
                                             <div className="thumb_wrap">
                                                 <div style={{backgroundImage:`url(../static/team_test0${num}.png)`}} className="thumb_img"></div>
@@ -134,7 +134,7 @@ class TeachSearch extends Component {
                             num_ = num_ +1
                             return (
                                 <div className="product_item" key={team.id}>
-                                    <Link as={`/teach/${team.id}`} href={`/teach?teamId=${team.id}`}>
+                                    <Link href={{ pathname: '/teach', query: { id: `${team.id}` } }} as={`/teach/${team.id}`}>
                                         <div style={{display:"flex"}}>
                                             <div className="thumb_wrap">
                                                 <div style={{backgroundImage:`url(../static/team_test0${num_}.png)`}} className="thumb_img"></div>
