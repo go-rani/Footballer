@@ -4,9 +4,10 @@ import MainContents from '../components/main/MainContents';
 import React, { Component } from 'react';
 import db from '../common/db';
 
-class Index extends Component {
+export default class Index extends Component {
 
-    static async getInitialProps() {
+    static async getInitialProps({ req, query }) {
+        const userSession = req && req.session ? req.session.decodedToken : null
 
         const result = await db.collection('teams').orderBy('date').limit(4).get()
         const newTeams = []
@@ -17,17 +18,17 @@ class Index extends Component {
         })
         
         return {
-            teams: newTeams
+            teams: newTeams,
+            user : userSession
         }
-
     }
 
     render() {
         return (
-            <Layout>
+            // <div>aa</div>
+            <Layout user={this.props.user}>
                 <MainContents teamsData={this.props.teams}/>
             </Layout>
         )
     }
 }
-export default Index;

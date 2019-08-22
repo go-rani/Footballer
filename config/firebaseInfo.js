@@ -4,7 +4,8 @@ const config = {
     databaseURL: "https://footballer-43d76.firebaseio.com",
     projectId: "footballer-43d76",
     storageBucket: "footballer-43d76.appspot.com",
-    messagingSenderId: "1058561740899"
+    messagingSenderId: "1058561740899",
+    appId: "1:1058561740899:web:0fd6e58e5be2f84f"
 }
 
 export default config;

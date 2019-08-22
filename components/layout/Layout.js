@@ -3,7 +3,17 @@ import ReactGA from 'react-ga';
 import Header from './Header';
 import Footer from './Footer';
 
+import userDB from '../../common/store/user';
+import { observer } from 'mobx-react';
+
+@observer
 class Layout extends Component {
+    constructor(props) {
+        super(props)
+        
+        const user = props.user && props ? props.user : null
+        if (user) userDB.info.uid = user.uid
+    }
     
     componentDidMount() {
         ReactGA.initialize('UA-1234567-1')

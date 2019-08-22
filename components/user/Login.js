@@ -2,8 +2,9 @@ import Link from 'next/link';
 import React, { Component } from 'react';
 import Router from 'next/router';
 import firebase from '../../common/firebase';
-import user from '../../common/store/user'
+import userDB from '../../common/store/user';
 import { observer } from 'mobx-react';
+// import 'isomorphic-unfetch'
 import { Button, Dropdown, DropdownButton, Modal, ButtonToolbar } from 'react-bootstrap';
 
 class LogindModal extends Component {
@@ -11,14 +12,15 @@ class LogindModal extends Component {
         const provier = new firebase.auth.GoogleAuthProvider()
         firebase.auth().signInWithPopup( provier )
             .then( res => {
-                user.info = {
+                console.log(res)
+                userDB.info = {
                     displayName : res.user.displayName,
                     photoURL : res.user.photoURL,
                     email : res.user.email,
                     uid : res.user.uid,
                 }
                 //localstorage cache
-                localStorage.setItem("userInfo", JSON.stringify(user.info));
+                // localStorage.setItem("userInfo", JSON.stringify(user.info));
             })
             .catch(error => {
                 alert('login failed' + error.message)
@@ -34,19 +36,16 @@ class LogindModal extends Component {
                 centered >
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        FOOTBALLER
+                        <p style={{padding:"0px", margin:"0px", fontSize:"16px", fontWeight:"bold"}}>FOOTBALLER 로그인</p>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h5>Hey, nice to see you</h5>
-                    <p style={{margin:0}}>
-                        나의 축구/풋살 팀을 등록하고, 매치를 성사시켜 보세요.
-                    </p>
-                    <small className="text-muted">풋볼러는 회원가입을 받지 않습니다. 구글 계정을 통한 로그인만 가능합니다.</small>
-                </Modal.Body>
-                <Modal.Footer>
+                    <div style={{paddingBottom:"15px"}}>
+                        <small className="text-muted">풋볼러는 회원가입을 받지 않습니다.</small><br />
+                        <small className="text-muted">구글 계정을 통한 로그인만 가능합니다.</small><br />
+                    </div>
                     <Button variant="light" style={{justifyContent:"center", width:"100%", borderColor: "#6c757d"}} onClick={this._login}>구글 계정으로 시작하기</Button>
-                </Modal.Footer>
+                </Modal.Body>
             </Modal>
         );
     }
@@ -62,22 +61,50 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        if (user.info.displayName == "" && localStorage.hasOwnProperty("userInfo")) {
-            const cacheUser = JSON.parse(localStorage.getItem("userInfo"))
-            user.info = {
-                displayName : cacheUser.displayName,
-                photoURL : cacheUser.photoURL,
-                email : cacheUser.email,
-                uid : cacheUser.uid,
+        
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                userDB.info.uid = user.uid
+                return user
+                    .getIdToken()
+                    .then(token => {
+                        // eslint-disable-next-line no-undef
+                        return fetch('/api/login', {
+                            method: 'POST',
+                            // eslint-disable-next-line no-undef
+                            headers: new Headers({ 'Content-Type': 'application/json' }),
+                            credentials: 'same-origin',
+                            body: JSON.stringify({ token })
+                        })
+                    })
+            } else {
+                userDB.info.uid = ""
+                // this.setState({ user: null })
+                // eslint-disable-next-line no-undef
+                fetch('/api/logout', {
+                    method: 'POST',
+                    credentials: 'same-origin'
+                })
             }
-        }
+        })
+
+
+        // if (user.info.displayName == "" && localStorage.hasOwnProperty("userInfo")) {
+        //     const cacheUser = JSON.parse(localStorage.getItem("userInfo"))
+        //     user.info = {
+        //         displayName : cacheUser.displayName,
+        //         photoURL : cacheUser.photoURL,
+        //         email : cacheUser.email,
+        //         uid : cacheUser.uid,
+        //     }
+        // }
     }
 
     _logout = () => {
         firebase.auth().signOut()
             .then( res => {
-                user.info.uid = ""
-                localStorage.removeItem("userInfo");
+                userDB.info.uid = ""
+                // localStorage.removeItem("userInfo");
                 Router.push('/')
             })
             .catch(error => {
@@ -91,7 +118,7 @@ class Login extends Component {
 
         return (
             <div>
-                {user.info.uid === "" &&(
+                {userDB.info.uid === "" &&(
                     // <Button variant="outline-secondary" size="sm" onClick={this._login}>로그인</Button>
                     <ButtonToolbar>
                         <a className="text-decoration-none text-reset" style={{fontSize:"14px"}} onClick={() => this.setState({ modalShow: true })}>로그인</a>
@@ -100,9 +127,9 @@ class Login extends Component {
                         <LogindModal show={this.state.modalShow} onHide={modalClose} />
                     </ButtonToolbar>
                 )}
-                {user.info.uid !== "" &&(
+                {userDB.info.uid !== "" &&(
                    <DropdownButton variant="outline-secondary" title="@" size="sm" alignRight style={{fontSize:"12px"}}>
-                        <a className="dropdown-item">HI! {user.info.displayName}님</a>
+                        <a className="dropdown-item">HI! {userDB.info.displayName}님</a>
                         {/* <Link href="/teamreg"><a className="dropdown-item">팀등록</a></Link> */}
                         <Link href="/profile"><a className="dropdown-item">마이페이지</a></Link>
                         {/* <Link href="/myteam"><a className="dropdown-item">팀관리</a></Link> */}
